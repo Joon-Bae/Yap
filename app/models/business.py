@@ -21,6 +21,8 @@ class Business(db.Model, UserMixin):
     def to_dict_with_user(self):
         return {
             'id': self.id,
+            'title':self.title,
+            'address':self.address,
             'ownerId': self.owner_id,
             'description': self.description,
             'user': {
