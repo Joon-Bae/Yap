@@ -1,10 +1,16 @@
 // Actions
 const LOAD_BUSINESSES = 'businesses/LOAD_BUSINESSES'
+const ADD_BUSINESS = 'businesses/ADD_BUSINESS'
 
 //Action Creator
 const loadBusinesses = (businesses) => ({
     type: LOAD_BUSINESSES,
     businesses
+})
+
+const addBusiness = (business) => ({
+    type: ADD_BUSINESS,
+    business
 })
 
 //Thunks
@@ -23,6 +29,24 @@ export const getAllBusinesses = () => async (dispatch) => {
     }
 }
 
+export const createNewBusiness = (payload) => async (dispatch) => {
+    const response = await fetch('/api/businesses/new', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(addBusiness(data))
+    } else {
+        const badData = await response.json()
+        if (badData.errors) return badData.errors
+    }
+}
+
 const initialState = { normalizedBusinesses: {} }
 
 export default function businessesReducer(state = initialState, action) {
@@ -33,6 +57,10 @@ export default function businessesReducer(state = initialState, action) {
             action.businesses.allBusinesses.forEach(el => {
                 newState.normalizedBusinesses[el.id] = el
             })
+            return newState
+        case ADD_BUSINESS:
+            newState = JSON.parse(JSON.stringify(state))
+            newState.normalizedBusinesses[action.business.new_business.id] = action.business.new_business
             return newState
         default:
             return state
