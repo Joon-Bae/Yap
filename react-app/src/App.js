@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import Home from './components/HomePage/homepage';
+import IndividualBusiness from './components/Businesses/IndividualBusiness';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -42,10 +44,13 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <h1>Splash Page</h1>
         </ProtectedRoute>
         <ProtectedRoute path='/home' exact={true} >
           <Home/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/businesses/:businessId' exact={true} >
+          <IndividualBusiness/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -19,6 +19,7 @@ def validation_errors_to_error_messages(validation_errors):
 # GET route for all businesses
 @business_routes.get('/')
 def get_all_business():
+
     all_business = Business.query.all()
     response = {'allBusinesses': [business.to_dict_with_user() for business in all_business]}
     return response
