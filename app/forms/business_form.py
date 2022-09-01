@@ -11,7 +11,7 @@ def title_check(form, field):
 
 def description_check(form, field):
     description = field.data
-    if len(description) < 5 or len(description) > 100:
+    if len(description) < 5 or len(description) > 255:
         raise ValidationError('Must be between 5 and 100 characters')
 
 def address_check(form, field):
