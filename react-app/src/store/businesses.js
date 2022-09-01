@@ -9,11 +9,12 @@ const loadBusinesses = (businesses) => ({
 
 //Thunks
 export const getAllBusinesses = () => async (dispatch) => {
-    const response = await fetch('api/businesses/', {
+    const response = await fetch('/api/businesses/', {
         headers: {
             'Content-Type': 'application/json'
         }
     })
+    console.log(response)
     if (response.ok) {
         const data = await response.json()
         if (data.errors) {
