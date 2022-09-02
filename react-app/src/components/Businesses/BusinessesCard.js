@@ -18,7 +18,7 @@ export default function BusinessesCard () {
             <>
             {businesses && businesses.map(business => {
                 return (
-                    <div className='business-card'>
+                    <div key={`${business.id}`} className='business-card'>
                         <div>
                             <img className='business-image'src={business.imageUrl}/>
                         </div>
