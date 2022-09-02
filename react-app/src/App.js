@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import Home from './components/HomePage/homepage';
 import IndividualBusiness from './components/Businesses/IndividualBusiness';
 import NewBusinessForm from './components/Businesses/NewBusinessForm';
+import EditBusinessForm from './components/Businesses/EditBusiness';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -51,6 +52,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/businesses/new' exact={true} >
           <NewBusinessForm/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/businesses/:businessId/edit' exact={true} >
+          <EditBusinessForm/>
         </ProtectedRoute>
         <ProtectedRoute path='/businesses/:businessId' exact={true} >
           <IndividualBusiness/>

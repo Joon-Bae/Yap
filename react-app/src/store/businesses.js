@@ -2,6 +2,7 @@
 const LOAD_BUSINESSES = 'businesses/LOAD_BUSINESSES'
 const ADD_BUSINESS = 'businesses/ADD_BUSINESS'
 const DELETE_BUSINESS = 'businesses/DELETE_BUSINESS'
+const EDIT_BUSINESS = '/businesses/EDIT_BUSINESS'
 
 
 //Action Creator
@@ -18,6 +19,11 @@ const addBusiness = (business) => ({
 const deleteBusiness = (id) => ({
     type: DELETE_BUSINESS,
     id
+})
+
+const updateBusiness = (business) => ({
+    type: EDIT_BUSINESS,
+    business
 })
 
 //Thunks
@@ -63,6 +69,25 @@ export const removeBusiness = (id) => async dispatch => {
     }
 }
 
+export const editBusiness = (formValues) => async dispatch => {
+    console.log("************************** inside thunk")
+    const { businessId } = formValues
+    const response = await fetch(`/api/businesses/${businessId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formValues)
+    });
+    console.log("-------------------------------- response", response)
+    if (response.ok) {
+
+        const data = await response.json();
+        dispatch(updateBusiness(data));
+    } else {
+        const badData = await response.json()
+        if (badData.errors) return badData.errors
+    }
+};
+
 const initialState = { normalizedBusinesses: {} }
 
 export default function businessesReducer(state = initialState, action) {
@@ -81,6 +106,10 @@ export default function businessesReducer(state = initialState, action) {
         case DELETE_BUSINESS:
             newState = JSON.parse(JSON.stringify(state))
             delete newState.normalizedBusinesses[action.id]
+            return newState
+        case EDIT_BUSINESS:
+            newState = JSON.parse(JSON.stringify(state))
+            newState.normalizedBusinesses[action.business.id] = action.business
             return newState
         default:
             return state
