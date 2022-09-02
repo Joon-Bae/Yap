@@ -26,7 +26,7 @@ def get_all_business():
 
 # use current_user for interacting with current logged in user
 # and making new post with user_id (current set to get to view curr_user object)
-@business_routes.post('/new')
+@business_routes.route('/new', methods=["POST"])
 def create_post():
     form = BusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -54,20 +54,27 @@ def create_post():
 
 
 # Edit route for businesses
-@business_routes.put('/<int:id>')
+@business_routes.route('/<int:id>', methods=["PATCH"])
 @login_required
 def edit_business(id):
+    print(request.json, "___________________________"*50)
     form = BusinessForm()
     business = Business.query.get_or_404(id)
 
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        data = form.data
-        business.title = data['title']
-        business.description = data['description']
-        business.address = data['address']
-        db.session.commit()
-        return {'business': business.to_dict_with_user()}
+            data = form.data
+            business.title = data['title']
+            business.description = data['description']
+            business.address1 = data['address1']
+            business.address2 = data['address2']
+            business.city = data['city']
+            business.state = data['state']
+            business.zip_code = data['zipCode']
+            if data['imageUrl']:
+                business.image_url= data['imageUrl']
+            db.session.commit()
+            return {'business': business.to_dict_with_user()}
 
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 403

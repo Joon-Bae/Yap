@@ -16,7 +16,7 @@ class Business(db.Model, UserMixin):
     city = db.Column(db.String(50), nullable=False)
     state = db.Column(db.String(13), nullable=False)
     zip_code = db.Column(db.String(5), nullable=False)
-    image_url = db.Column(db.String(255), unique=True)
+    image_url = db.Column(db.String(255))
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, onupdate=func.now())
 

@@ -43,7 +43,7 @@ export const getAllBusinesses = () => async (dispatch) => {
 }
 
 export const createNewBusiness = (business) => async (dispatch) => {
-    console.log("************************** inside thunk")
+
     const response = await fetch('/api/businesses/new', {
         method: 'POST',
         headers: {
@@ -51,7 +51,7 @@ export const createNewBusiness = (business) => async (dispatch) => {
         },
         body: JSON.stringify(business)
     })
-    console.log("-------------------------------- response", response)
+
     if (response.ok) {
         const data = await response.json()
         dispatch(addBusiness(data))
@@ -71,14 +71,14 @@ export const removeBusiness = (id) => async dispatch => {
 }
 
 export const editBusiness = (formValues) => async dispatch => {
-
+    console.log("************************** inside thunk", formValues)
     const { businessId } = formValues
     const response = await fetch(`/api/businesses/${businessId}`, {
-        method: 'PUT',
+        method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formValues)
     });
-
+    console.log("-------------------------------- response", response)
     if (response.ok) {
 
         const data = await response.json();
