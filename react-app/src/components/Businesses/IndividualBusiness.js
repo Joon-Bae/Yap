@@ -33,7 +33,13 @@ export default function IndividualBusiness () {
 		    <div>
 		    <h1 className='business-title'>{business.title}</h1>
 		    <p className='business-description'>{business.description}</p>
-		    <p className='business-address'>{business.address}</p>
+            <div className="business-address-full">
+		    <p className='business-address1'>{business?.address1}</p>
+			<p className='business-address2'>{business?.address2}</p>
+			<p className='business-city'>{business?.city}</p>
+			<p className='business-state'>{business?.state}</p>
+			<p className='business-zip'>{business?.zipCode}</p>
+            </div>
 		    <div className='editdelete-business-container'>
 		    <button className='editbusiness-btn' onClick={editUserBusiness}>
 			Edit Business</button>
@@ -46,7 +52,13 @@ export default function IndividualBusiness () {
 			<span>
 				<h1 className='business-title'>{business?.title}</h1>
 				<p className='business-description'>{business?.description}</p>
-				<p className='business-address'>{business?.address}</p>
+                <div className="business-address-full">
+				    <p className='business-address1'>{business?.address1}</p>
+				    <p className='business-address2'>{business?.address2}</p>
+				    <p className='business-city'>{business?.city}</p>
+				    <p className='business-state'>{business?.state}</p>
+				    <p className='business-zip'>{business?.zipCode}</p>
+                </div>
 
 			</span>
 		)}

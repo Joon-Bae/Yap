@@ -35,11 +35,17 @@ def create_post():
         new_business = Business(
             title = data['title'],
             description = data['description'],
-            address = data['address'],
+            address1 = data['address1'],
+            address2 = data['address2'],
+            city = data['city'],
+            state = data['state'],
+            zip_code = data['zipCode'],
+            image_url= data['imageUrl'],
             owner_id = current_user.id
         )
         db.session.add(new_business)
         db.session.commit()
+        # make query for new_business for foreign_key
         return {'new_business': new_business.to_dict_with_user()}
 
     # Return the validation errors, and put 403 at end
@@ -53,7 +59,6 @@ def create_post():
 def edit_business(id):
     form = BusinessForm()
     business = Business.query.get_or_404(id)
-    print("++++++++++++++++++++++++++++++++++++++ backend route")
 
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():

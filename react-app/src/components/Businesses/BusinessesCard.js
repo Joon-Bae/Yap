@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { NavLink  } from "react-router-dom"
 import { useEffect } from "react"
 import { getAllBusinesses } from "../../store/businesses"
+import './businesscard.css'
 
 export default function BusinessesCard () {
     const dispatch = useDispatch()
@@ -17,12 +18,20 @@ export default function BusinessesCard () {
             <>
             {businesses && businesses.map(business => {
                 return (
-                    <NavLink key={`${business.id}`} to={`/businesses/${business.id}`}>
-                        <div className='businesses-link'>
-                            {business.title}
+                    <div className='business-card'>
+                        <div>
+                            <img className='business-image'src={business.imageUrl}/>
                         </div>
-                    </NavLink>
-                    )
+                        <NavLink key={`${business.id}`} to={`/businesses/${business.id}`}>
+                            <div className='businesses-link'>
+                                <div>
+                                {business.title}
+                                </div>
+
+                            </div>
+                        </NavLink>
+                        </div>
+                )
 
             })}
             </>

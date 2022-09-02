@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: af251fb90363
-Revises: 
-Create Date: 2022-09-01 12:25:20.517731
+Revision ID: d07c3f03e26f
+Revises:
+Create Date: 2022-09-02 12:18:21.859052
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'af251fb90363'
+revision = 'd07c3f03e26f'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -34,12 +34,18 @@ def upgrade():
     sa.Column('owner_id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=100), nullable=False),
     sa.Column('description', sa.Text(), nullable=True),
-    sa.Column('address', sa.String(length=255), nullable=False),
+    sa.Column('address1', sa.String(length=100), nullable=False),
+    sa.Column('address2', sa.String(length=50), nullable=True),
+    sa.Column('city', sa.String(length=50), nullable=False),
+    sa.Column('state', sa.String(length=13), nullable=False),
+    sa.Column('zip_code', sa.String(length=5), nullable=False),
+    sa.Column('image_url', sa.String(length=255), nullable=True),
     sa.Column('created_at', sa.DateTime(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('address'),
+    sa.UniqueConstraint('address1'),
+    sa.UniqueConstraint('image_url'),
     sa.UniqueConstraint('title')
     )
     # ### end Alembic commands ###
