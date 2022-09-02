@@ -45,3 +45,12 @@ def create_post():
     # Return the validation errors, and put 403 at end
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 403
+
+# Delete route for businesses
+@business_routes.delete('/<int:id>')
+@login_required
+def delete_business(id):
+    business = Business.query.get_or_404(id)
+    db.session.delete(business)
+    db.session.commit()
+    return {'message': 'Successfully deleted'}
