@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from "react-router-dom"
-import { createNewBusiness } from "../../store/businesses"
+import { useHistory, useParams } from "react-router-dom"
+import { editBusiness } from "../../store/businesses"
 
-function NewBusinessForm() {
+function EditBusinessForm() {
     const dispatch = useDispatch();
+    const { businessId } = useParams()
+    const business = useSelector((state) => state.businesses.normalizedBusinesses[businessId])
     const ownerId = useSelector((state) => state.session.user.id)
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("")
@@ -27,23 +29,24 @@ function NewBusinessForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const formValues = {
+            businessId,
             ownerId,
             title,
             description,
             address
         }
-        dispatch(createNewBusiness(formValues))
+        dispatch(editBusiness(formValues))
         console.log(formValues)
         history.push('/home')
     }
 
     return (
-        <div className="new-business-page">
+        <div className="edit-business-page">
         <form
-            className="business-form"
+            className="edit-business-form"
             onSubmit={handleSubmit}
         >
-            <h2 className='new-business-prompt'>Add Your Business</h2>
+            <h2 className='edit-business-prompt'>Edit Your Business</h2>
             <ul className="errors">
                 {
                     errors.map(error => (
@@ -53,8 +56,8 @@ function NewBusinessForm() {
             </ul>
             <div>
                 <input
-                    className='new-business-input'
-                    placeholder='Title'
+                    className='edit-business-input'
+                    placeholder={business?.title}
                     type="text"
                     name="title"
                     value={title}
@@ -63,9 +66,9 @@ function NewBusinessForm() {
             </div>
             <div>
                 <input
-                    className='new-business-input'
+                    className='edit-business-input'
                     type="text"
-                    placeholder='Description'
+                    placeholder={business?.description}
                     name="description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
@@ -73,9 +76,9 @@ function NewBusinessForm() {
             </div>
             <div>
                 <input
-                    className='new-business-input'
+                    className='edit-business-input'
                     type="text"
-                    placeholder='Address'
+                    placeholder={business?.address}
                     name="address"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
@@ -87,11 +90,11 @@ function NewBusinessForm() {
                 disabled={errors.length > 0}
                 onClick={(e) => handleSubmit(e)}
             >
-                Add this business
+                Edit this business
             </button>
         </form>
         </div>
     );
 }
 
-export default NewBusinessForm;
+export default EditBusinessForm;

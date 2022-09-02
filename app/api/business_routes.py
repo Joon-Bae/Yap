@@ -46,6 +46,28 @@ def create_post():
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 403
 
+
+# Edit route for businesses
+@business_routes.put('/<int:id>')
+@login_required
+def edit_business(id):
+    form = BusinessForm()
+    business = Business.query.get_or_404(id)
+    print("++++++++++++++++++++++++++++++++++++++ backend route")
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = form.data
+        business.title = data['title']
+        business.description = data['description']
+        business.address = data['address']
+        db.session.commit()
+        return {'business': business.to_dict_with_user()}
+
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 403
+
+
 # Delete route for businesses
 @business_routes.delete('/<int:id>')
 @login_required
