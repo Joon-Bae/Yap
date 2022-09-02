@@ -71,14 +71,12 @@ export const removeBusiness = (id) => async dispatch => {
 }
 
 export const editBusiness = (formValues) => async dispatch => {
-    console.log("************************** inside thunk", formValues)
     const { businessId } = formValues
     const response = await fetch(`/api/businesses/${businessId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formValues)
     });
-    console.log("-------------------------------- response", response)
     if (response.ok) {
 
         const data = await response.json();
@@ -110,7 +108,7 @@ export default function businessesReducer(state = initialState, action) {
             return newState
         case EDIT_BUSINESS:
             newState = JSON.parse(JSON.stringify(state))
-            newState.normalizedBusinesses[action.business.id] = action.business
+            newState.normalizedBusinesses[action.business.business.id] = action.business.business
             return newState
         default:
             return state

@@ -21,8 +21,8 @@ def address1_check(form, field):
 
 def city_check(form, field):
     city = field.data
-    if len(city) < 5 or len(city) > 50:
-        raise ValidationError('Must be between 5 and 50 characters')
+    if len(city) < 3 or len(city) > 50:
+        raise ValidationError('Must be between 3 and 50 characters')
 
 
 
