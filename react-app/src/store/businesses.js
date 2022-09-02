@@ -1,6 +1,8 @@
 // Actions
 const LOAD_BUSINESSES = 'businesses/LOAD_BUSINESSES'
 const ADD_BUSINESS = 'businesses/ADD_BUSINESS'
+const DELETE_BUSINESS = 'businesses/DELETE_BUSINESS'
+
 
 //Action Creator
 const loadBusinesses = (businesses) => ({
@@ -11,6 +13,11 @@ const loadBusinesses = (businesses) => ({
 const addBusiness = (business) => ({
     type: ADD_BUSINESS,
     business
+})
+
+const deleteBusiness = (id) => ({
+    type: DELETE_BUSINESS,
+    id
 })
 
 //Thunks
@@ -47,6 +54,15 @@ export const createNewBusiness = (payload) => async (dispatch) => {
     }
 }
 
+export const removeBusiness = (id) => async dispatch => {
+    const response = await fetch(`/api/businesses/${id}`, {
+        method: 'DELETE'
+    });
+    if (response.ok) {
+        dispatch(deleteBusiness(id))
+    }
+}
+
 const initialState = { normalizedBusinesses: {} }
 
 export default function businessesReducer(state = initialState, action) {
@@ -61,6 +77,10 @@ export default function businessesReducer(state = initialState, action) {
         case ADD_BUSINESS:
             newState = JSON.parse(JSON.stringify(state))
             newState.normalizedBusinesses[action.business.new_business.id] = action.business.new_business
+            return newState
+        case DELETE_BUSINESS:
+            newState = JSON.parse(JSON.stringify(state))
+            delete newState.normalizedBusinesses[action.id]
             return newState
         default:
             return state
