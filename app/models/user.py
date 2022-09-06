@@ -34,3 +34,4 @@ class User(db.Model, UserMixin):
 
     # Relationships
     businesses = db.relationship('Business', back_populates='user', cascade='all, delete')  # User can have many businesses
+    reviews = db.relationship('Review', back_populates='user', cascade='all, delete')  # User can have many reviews

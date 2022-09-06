@@ -22,6 +22,7 @@ class Business(db.Model, UserMixin):
 
     # Relationships
     user = db.relationship('User', back_populates='businesses')  # Business can only belong to one user
+    business_reviews = db.relationship('Review', back_populates='business', cascade='all, delete') #  business can have many reviews
 
     def to_dict_with_user(self):
         return {
