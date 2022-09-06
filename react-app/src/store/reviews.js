@@ -20,14 +20,14 @@ const deleteReview = (id) => ({
     id
 })
 
-const updateReview = (review) => ({
-    type: EDIT_REVIEW,
-    review
-})
+// const updateReview = (review) => ({
+//     type: EDIT_REVIEW,
+//     review
+// })
 
 
 //Thunks
-//add review thunk
+//get review thunk
 export const getAllReviews = () => async (dispatch) => {
     const response = await fetch('/api/reviews/', {
         headers: {
@@ -89,15 +89,15 @@ export const removeReview= (id) => async dispatch => {
 //     }
 // };
 
-const initialState = { normalizedReviews: {} }
+const initialState = { normalizedReviews: {}}
 
 export default function reviewsReducer(state = initialState, action) {
     let newState
     switch (action.type) {
         case LOAD_REVIEWS:
             newState = JSON.parse(JSON.stringify(state))
-            action.reviews.allReviews.forEach(el => {
-                newState.normalizedReviews[el.id] = el
+            action.reviews.allReviews.forEach(review => {
+                newState.normalizedReviews[review.id] = review
             })
             return newState
         case ADD_REVIEW:

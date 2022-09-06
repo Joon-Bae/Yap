@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom"
 import { useEffect } from "react"
 import { getAllBusinesses } from "../../store/businesses"
 import { removeBusiness } from "../../store/businesses"
+import { getAllReviews } from "../../store/reviews"
 
 export default function IndividualBusiness () {
     const history = useHistory()
@@ -13,6 +14,7 @@ export default function IndividualBusiness () {
 
     useEffect(() => {
     dispatch(getAllBusinesses())
+    dispatch(getAllReviews())
     }, [dispatch, businessId])
 
     const editUserBusiness = (e) => {
@@ -62,6 +64,9 @@ export default function IndividualBusiness () {
 
 			</span>
 		)}
+            <div className='business-reviews'>
+
+            </div>
             </div>
         </div>
     )

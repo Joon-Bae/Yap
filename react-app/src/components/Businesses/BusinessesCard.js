@@ -30,6 +30,14 @@ export default function BusinessesCard () {
 
                             </div>
                         </NavLink>
+                        <NavLink to={`/businesses/${business.id}/reviews/new`}>
+                            <div className='new-review-link'>
+                                <div>
+                                Add your review here!
+                                </div>
+
+                            </div>
+                        </NavLink>
                         </div>
                 )
 

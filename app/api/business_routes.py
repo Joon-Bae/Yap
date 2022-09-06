@@ -27,7 +27,7 @@ def get_all_business():
 # use current_user for interacting with current logged in user
 # and making new post with user_id (current set to get to view curr_user object)
 @business_routes.route('/new', methods=["POST"])
-def create_post():
+def create_business():
     form = BusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
