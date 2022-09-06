@@ -17,3 +17,17 @@ class Review(db.Model, UserMixin):
     # Relationships
     user = db.relationship('User', back_populates='reviews')  # reviews can only belong to one user
     business = db.relationship('Business', back_populates='business_reviews')  # Comment can only belong to one post
+
+    def review_to_dict_user(self):
+        return {
+            'id': self.id,
+            'businessId': self.business_id,
+            'userId': self.user_id,
+            'rating': self.rating,
+            'review': self.review,
+            'user': {
+                'username': User.query.get(self.owner_id).username
+            },
+            'createdAt': self.created_at,
+            'updatedAt': self.updated_at,
+        }
