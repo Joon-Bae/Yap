@@ -18,7 +18,6 @@ def validation_errors_to_error_messages(validation_errors):
 # GET route for all reviews
 @review_routes.get('/')
 def get_all_reviews():
-    print("**************************************** inside api route")
     all_reviews = Review.query.all()
     response = {'allReviews': [review.review_to_dict_user() for review in all_reviews]}
     return response
@@ -27,13 +26,14 @@ def get_all_reviews():
 @review_routes.route('/new', methods=["POST"])
 def create_review():
     form = ReviewForm()
+
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         data = form.data
         new_review = Review(
-            business_id = data['businessId'],
             rating = data['rating'],
             review = data['review'],
+            business_id = data['business_id'],
             user_id = current_user.id
         )
         db.session.add(new_review)

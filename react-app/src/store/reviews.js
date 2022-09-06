@@ -45,7 +45,6 @@ export const getAllReviews = () => async (dispatch) => {
 
 //create review thunk
 export const createNewReview = (review) => async (dispatch) => {
-
     const response = await fetch('/api/reviews/new', {
         method: 'POST',
         headers: {
@@ -53,8 +52,10 @@ export const createNewReview = (review) => async (dispatch) => {
         },
         body: JSON.stringify(review)
     })
+    console.log("_____________________________________ inside thunk")
 
     if (response.ok) {
+        console.log(response, "****************************** this is the response for create")
         const data = await response.json()
         dispatch(addReview(data))
     } else {

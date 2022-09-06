@@ -11,6 +11,8 @@ export default function IndividualBusiness () {
     const { businessId } = useParams()
     const sessionUser = useSelector((state) => state.session.user)
     const business = useSelector((state) => state.businesses.normalizedBusinesses[businessId])
+    const reviews = useSelector((state) => Object.values(state.reviews.normalizedReviews))
+    const businessReview = reviews.filter(review  => +businessId === +review.businessId)
 
     useEffect(() => {
     dispatch(getAllBusinesses())
@@ -65,7 +67,13 @@ export default function IndividualBusiness () {
 			</span>
 		)}
             <div className='business-reviews'>
-
+            {businessReview && businessReview.map(review => {
+                return (
+                    <div>
+                    <p>{review.review}</p>
+                </div>
+                )
+            })}
             </div>
             </div>
         </div>
