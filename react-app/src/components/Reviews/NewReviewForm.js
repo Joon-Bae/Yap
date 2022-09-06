@@ -25,9 +25,9 @@ function NewReviewForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const formValues = {
-            businessId,
+            business_id: +businessId,
             userId,
-            rating,
+            rating: +rating,
             review
         }
         dispatch(createNewReview(formValues))
