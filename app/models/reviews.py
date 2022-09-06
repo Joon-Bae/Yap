@@ -13,3 +13,7 @@ class Review(db.Model, UserMixin):
     review = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, onupdate=func.now())
+
+    # Relationships
+    user = db.relationship('User', back_populates='reviews')  # reviews can only belong to one user
+    business = db.relationship('Business', back_populates='business_reviews')  # Comment can only belong to one post
