@@ -25,9 +25,6 @@ class Review(db.Model, UserMixin):
             'userId': self.user_id,
             'rating': self.rating,
             'review': self.review,
-            'user': {
-                'username': User.query.get(self.owner_id).username
-            },
             'createdAt': self.created_at,
             'updatedAt': self.updated_at,
         }
