@@ -52,10 +52,8 @@ export const createNewReview = (review) => async (dispatch) => {
         },
         body: JSON.stringify(review)
     })
-    console.log("_____________________________________ inside thunk")
 
     if (response.ok) {
-        console.log(response, "****************************** this is the response for create")
         const data = await response.json()
         dispatch(addReview(data))
     } else {
@@ -65,7 +63,7 @@ export const createNewReview = (review) => async (dispatch) => {
 }
 
 
-export const removeReview= (id) => async dispatch => {
+export const removeReview = (id) => async dispatch => {
     const response = await fetch(`/api/reviews/${id}`, {
         method: 'DELETE'
     });

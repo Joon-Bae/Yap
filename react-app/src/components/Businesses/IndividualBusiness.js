@@ -4,6 +4,10 @@ import { useEffect } from "react"
 import { getAllBusinesses } from "../../store/businesses"
 import { removeBusiness } from "../../store/businesses"
 import { getAllReviews } from "../../store/reviews"
+import { removeReview } from "../../store/reviews"
+import trashCan from '../../Images/trashcan.svg'
+import editReview from '../../Images/edit-review.svg'
+import './individualbusiness.css'
 
 export default function IndividualBusiness () {
     const history = useHistory()
@@ -11,6 +15,8 @@ export default function IndividualBusiness () {
     const { businessId } = useParams()
     const sessionUser = useSelector((state) => state.session.user)
     const business = useSelector((state) => state.businesses.normalizedBusinesses[businessId])
+    const review= useSelector((state) => state.reviews.normalizedReviews)
+    console.log(review, "********************************* this is review")
     const reviews = useSelector((state) => Object.values(state.reviews.normalizedReviews))
     const businessReview = reviews.filter(review  => +businessId === +review.businessId)
 
@@ -30,12 +36,17 @@ export default function IndividualBusiness () {
         history.push('/home')
     }
 
+    const handleReviewDelete = () => {
+        dispatch(removeReview())
+        history.push(`/businesses/${businessId}`)
+    }
+
     return (
         <div className='individual-business-page'>
             <div className='business-information'>
             {sessionUser.id === business?.ownerId ? (
 		    <div>
-		    <h1 className='business-title'>{business.title}</h1>
+		    <h1  className='business-title'>{business.title}</h1>
 		    <p className='business-description'>{business.description}</p>
             <div className="business-address-full">
 		    <p className='business-address1'>{business?.address1}</p>
@@ -69,13 +80,26 @@ export default function IndividualBusiness () {
             <div className='business-reviews'>
             {businessReview && businessReview.map(review => {
                 return (
-                    <div>
-                    <p>{review.rating}</p>
-                    <p>{review.review}</p>
-                </div>
+                    <div className='review-container'>
+                        <div class='review-information'>
+                        <p>{review.rating}</p>
+                        <div onClick={handleReviewDelete} className="delete-review-button">
+                        <img className='delete-review-image' src={trashCan}/>
+                        </div>
+                        <div className='edit-review-button'>
+                        <img className='edit-review-image' src={editReview}/>
+                        </div>
+                        </div>
+                        <div>
+                        <p>{review.review}</p>
+                        </div>
+                    </div>
+
                 )
             })}
+
             </div>
+
             </div>
         </div>
     )
