@@ -70,6 +70,7 @@ export default function IndividualBusiness () {
             {businessReview && businessReview.map(review => {
                 return (
                     <div>
+                    <p>{review.rating}</p>
                     <p>{review.review}</p>
                 </div>
                 )
