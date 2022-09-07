@@ -64,10 +64,13 @@ export const createNewReview = (review) => async (dispatch) => {
 
 
 export const removeReview = (id) => async dispatch => {
+    console.log("************************** inside thunk", id)
+
     const response = await fetch(`/api/reviews/${id}`, {
         method: 'DELETE'
     });
     if (response.ok) {
+        console.log(response, "---------------------------- this is response")
         dispatch(deleteReview(id))
     }
 }
