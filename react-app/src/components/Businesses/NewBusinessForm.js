@@ -148,7 +148,7 @@ function NewBusinessForm() {
             <div>
                 <input
                     className='new-business-input'
-                    type="text"
+                    type="number"
                     placeholder='Zip Code'
                     name="zipCode"
                     value={zipCode}

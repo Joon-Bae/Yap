@@ -47,7 +47,7 @@ function NewReviewForm() {
                 <input
                     className='new-review-input'
                     placeholder='Rating'
-                    type="text"
+                    type="number"
                     name="rating"
                     value={rating}
                     onChange={(e) => setRating(e.target.value)}

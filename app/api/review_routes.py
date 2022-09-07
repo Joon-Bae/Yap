@@ -65,10 +65,10 @@ def edit_review(id):
         return {'errors': validation_errors_to_error_messages(form.errors)}, 403
 
 #Delete route for review
-@review_routes.delete('/<int:id>')
+@review_routes.route('/<int:review_id>', methods=['DELETE'])
 @login_required
-def delete_review(id):
-    review = Review.query.get_or_404(id)
+def delete_review(review_id):
+    review = Review.query.filter(Review.id == review_id).one()
     db.session.delete(review)
     db.session.commit()
     return {'message': 'Successfully deleted'}
