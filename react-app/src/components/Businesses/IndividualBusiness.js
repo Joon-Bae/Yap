@@ -15,9 +15,8 @@ export default function IndividualBusiness () {
     const { businessId } = useParams()
     const sessionUser = useSelector((state) => state.session.user)
     const business = useSelector((state) => state.businesses.normalizedBusinesses[businessId])
-    const review= useSelector((state) => state.reviews.normalizedReviews)
-    console.log(review, "********************************* this is review")
     const reviews = useSelector((state) => Object.values(state.reviews.normalizedReviews))
+    const review = useSelector((state) => state.reviews.normalizedReviews)
     const businessReview = reviews.filter(review  => +businessId === +review.businessId)
 
     useEffect(() => {
@@ -36,8 +35,8 @@ export default function IndividualBusiness () {
         history.push('/home')
     }
 
-    const handleReviewDelete = () => {
-        dispatch(removeReview())
+    const handleReviewDelete = (key) => {
+        dispatch(removeReview(review[key].id))
         history.push(`/businesses/${businessId}`)
     }
 
@@ -78,17 +77,25 @@ export default function IndividualBusiness () {
 			</span>
 		)}
             <div className='business-reviews'>
-            {businessReview && businessReview.map(review => {
+            {businessReview && businessReview.map((review, idx) => {
                 return (
-                    <div className='review-container'>
-                        <div class='review-information'>
+                    <div key={idx} className='review-container'>
+                        <div className='review-information'>
                         <p>{review.rating}</p>
-                        <div onClick={handleReviewDelete} className="delete-review-button">
-                        <img className='delete-review-image' src={trashCan}/>
-                        </div>
-                        <div className='edit-review-button'>
-                        <img className='edit-review-image' src={editReview}/>
-                        </div>
+                            { sessionUser.id === review.userId ? (
+                            <>
+                            <div className="delete-review-button">
+                            <img onClick={() =>handleReviewDelete(review.id)} className='delete-review-image' src={trashCan}/>
+                            </div>
+                            <div className='edit-review-button'>
+                            <img className='edit-review-image' src={editReview}/>
+                            </div>
+                            </>
+                            ) : null
+
+                            }
+
+
                         </div>
                         <div>
                         <p>{review.review}</p>
