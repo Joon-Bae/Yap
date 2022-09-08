@@ -20,10 +20,10 @@ const deleteReview = (id) => ({
     id
 })
 
-// const updateReview = (review) => ({
-//     type: EDIT_REVIEW,
-//     review
-// })
+const updateReview = (review) => ({
+    type: EDIT_REVIEW,
+    review
+})
 
 
 //Thunks
@@ -75,21 +75,22 @@ export const removeReview = (id) => async dispatch => {
     }
 }
 
-// export const editReview = (formValues) => async dispatch => {
-//     const response = await fetch(`/api/reviews/${id}`, {
-//         method: 'PATCH',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify(formValues)
-//     });
-//     if (response.ok) {
+export const editReview = (formValues) => async dispatch => {
+    const { id } = formValues
+    const response = await fetch(`/api/reviews/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formValues)
+    });
+    if (response.ok) {
 
-//         const data = await response.json();
-//         dispatch(updateReview(data));
-//     } else {
-//         const badData = await response.json()
-//         if (badData.errors) return badData.errors
-//     }
-// };
+        const data = await response.json();
+        dispatch(updateReview(data));
+    } else {
+        const badData = await response.json()
+        if (badData.errors) return badData.errors
+    }
+};
 
 const initialState = { normalizedReviews: {}}
 
@@ -110,10 +111,10 @@ export default function reviewsReducer(state = initialState, action) {
             newState = JSON.parse(JSON.stringify(state))
             delete newState.normalizedReviews[action.id]
             return newState
-        // case EDIT_BUSINESS:
-        //     newState = JSON.parse(JSON.stringify(state))
-        //     newState.normalizedReviews[action.review.review.id] = action.review.review
-        //     return newState
+        case EDIT_REVIEW:
+            newState = JSON.parse(JSON.stringify(state))
+            newState.normalizedReviews[action.review.review.id] = action.review.review
+            return newState
         default:
             return state
         }
