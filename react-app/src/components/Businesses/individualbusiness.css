@@ -9,6 +9,10 @@
     cursor: pointer;
 }
 
+.edit-review-image:hover {
+    cursor: pointer;
+}
+
 .edit-review-image {
     height:25px;
     width:25px;

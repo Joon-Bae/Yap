@@ -22,6 +22,7 @@ export default function BusinessesCard () {
                         <div>
                             <img className='business-image'src={business.imageUrl}/>
                         </div>
+                        <div className='title-review-container'>
                         <NavLink key={`${business.id}`} to={`/businesses/${business.id}`}>
                             <div className='businesses-link'>
                                 <div>
@@ -38,6 +39,8 @@ export default function BusinessesCard () {
 
                             </div>
                         </NavLink>
+
+                        </div>
                         </div>
                 )
 

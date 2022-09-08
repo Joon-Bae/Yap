@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useHistory, useParams } from "react-router-dom"
+import { NavLink, useHistory, useParams } from "react-router-dom"
 import { useEffect } from "react"
 import { getAllBusinesses } from "../../store/businesses"
 import { removeBusiness } from "../../store/businesses"
@@ -38,6 +38,10 @@ export default function IndividualBusiness () {
     const handleReviewDelete = (key) => {
         dispatch(removeReview(review[key].id))
         history.push(`/businesses/${businessId}`)
+    }
+
+    const sendEditReview = (key) => {
+        history.push(`/reviews/${review[key].id}/edit`)
     }
 
     return (
@@ -88,7 +92,7 @@ export default function IndividualBusiness () {
                             <img onClick={() =>handleReviewDelete(review.id)} className='delete-review-image' src={trashCan}/>
                             </div>
                             <div className='edit-review-button'>
-                            <img className='edit-review-image' src={editReview}/>
+                            <img onClick={() =>sendEditReview(review.id)} className='edit-review-image' src={editReview}/>
                             </div>
                             </>
                             ) : null

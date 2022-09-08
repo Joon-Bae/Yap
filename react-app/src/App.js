@@ -13,6 +13,7 @@ import IndividualBusiness from './components/Businesses/IndividualBusiness';
 import NewBusinessForm from './components/Businesses/NewBusinessForm';
 import EditBusinessForm from './components/Businesses/EditBusiness';
 import NewReviewForm from './components/Reviews/NewReviewForm';
+import EditReviewForm from './components/Reviews/EditReviewForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -60,9 +61,13 @@ function App() {
         <ProtectedRoute path='/businesses/:businessId' exact={true} >
           <IndividualBusiness/>
         </ProtectedRoute>
+        <ProtectedRoute path='/reviews/:id/edit' exact={true} >
+          <EditReviewForm/>
+        </ProtectedRoute>
         <ProtectedRoute path='/businesses/:businessId/reviews/new' exact={true} >
           <NewReviewForm/>
         </ProtectedRoute>
+
       </Switch>
     </BrowserRouter>
   );

@@ -57,7 +57,6 @@ def create_business():
 @business_routes.route('/<int:id>', methods=["PATCH"])
 @login_required
 def edit_business(id):
-    print(request.json, "___________________________"*50)
     form = BusinessForm()
     business = Business.query.get_or_404(id)
 

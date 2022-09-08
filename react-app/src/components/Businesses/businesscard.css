@@ -1,4 +1,15 @@
+.businesses-list {
+    display:flex;
+}
+
 .business-image {
     width:150px;
     height:150px;
+}
+
+.business-card {
+    box-sizing: border-box;
+    border-style: solid;
+    display: flex;
+    width:350px;
 }
