@@ -14,6 +14,9 @@ export default function BusinessesCard () {
     }, [dispatch])
 
     return (
+        <div className='business-feed'>
+
+
         <div className='businesses-list'>
             <>
             {businesses && businesses.map(business => {
@@ -46,6 +49,7 @@ export default function BusinessesCard () {
 
             })}
             </>
+        </div>
         </div>
     )
 }
