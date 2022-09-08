@@ -48,14 +48,16 @@ def create_review():
 @review_routes.route('/<int:id>', methods=["PATCH"])
 @login_required
 def edit_review(id):
-    form = Review()
+    form = ReviewForm()
     review = Review.query.get_or_404(id)
 
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
             data = form.data
+            print(data, "this is data ----------------")
             review.rating = data['rating']
             review.review = data['review']
+            review.business_id = data['business_id']
             # if data['imageUrl']:
             #     business.image_url= data['imageUrl']
             db.session.commit()
