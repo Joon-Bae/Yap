@@ -1,6 +1,13 @@
+.business-feed {
+display:flex;
+justify-content: center;
+}
+
 .businesses-list {
-    display:flex;
-    justify-content: center;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1224px;
+
 }
 
 .business-image {
@@ -13,5 +20,6 @@
     border-style: solid;
     display: flex;
     width:480px;
-    margin-right: 1.5rem;
+    margin-right: 1.8rem;
+    margin-bottom: 1.8rem;
 }
