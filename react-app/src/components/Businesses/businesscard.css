@@ -1,5 +1,6 @@
 .businesses-list {
     display:flex;
+    justify-content: center;
 }
 
 .business-image {
@@ -11,5 +12,6 @@
     box-sizing: border-box;
     border-style: solid;
     display: flex;
-    width:350px;
+    width:480px;
+    margin-right: 1.5rem;
 }

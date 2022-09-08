@@ -64,24 +64,25 @@ export const createNewReview = (review) => async (dispatch) => {
 
 
 export const removeReview = (id) => async dispatch => {
-    console.log("************************** inside thunk", id)
 
     const response = await fetch(`/api/reviews/${id}`, {
         method: 'DELETE'
     });
     if (response.ok) {
-        console.log(response, "---------------------------- this is response")
         dispatch(deleteReview(id))
     }
 }
 
 export const editReview = (formValues) => async dispatch => {
+    console.log("************************** inside thunk")
     const { id } = formValues
+    console.log(id, "this is id")
     const response = await fetch(`/api/reviews/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formValues)
     });
+    console.log(response, "======================== this is response")
     if (response.ok) {
 
         const data = await response.json();

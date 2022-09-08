@@ -28,6 +28,7 @@ function EditReviewForm() {
         e.preventDefault();
         const formValues = {
             id: +id,
+            business_id: +individualReview?.businessId,
             userId,
             rating: +rating,
             review
