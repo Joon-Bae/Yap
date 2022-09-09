@@ -23,7 +23,7 @@ export default function BusinessesCard () {
                 return (
                     <div key={`${business.id}`} className='business-card'>
                         <div>
-                            <img className='business-image'src={business.imageUrl}/>
+                            <img className='business-image'src={business.imageUrl ? business.imageUrl : 'https://protkd.com/wp-content/uploads/2017/04/default-image.jpg'}/>
                         </div>
                         <div className='title-review-container'>
                         <NavLink key={`${business.id}`} to={`/businesses/${business.id}`}>
