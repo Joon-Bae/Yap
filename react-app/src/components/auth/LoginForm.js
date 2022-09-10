@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import welcomeImage from '../../Images/signup_illustration.png'
-// import yelpLogo from '../../Images/yelp-logo.svg'
+import yelpLogo from '../../Images/yelp-logo-3.png'
 import './LoginForm.css'
 
 
@@ -43,12 +43,10 @@ const LoginForm = () => {
   return (
     <>
     <div className='header-top-login'>
-      <div className='yelp-text'>
-        <p>yap</p>
+        <div>
+        <img className='yelp-logo' src={yelpLogo}/>
         </div>
-        {/* <img className='yelp-logo' src={yelpLogo}/> */}
-        </div>
-
+    </div>
     <div className='login-form-container-main'>
       <form className='login-form' onSubmit={onLogin}>
         {/* <div className='errors'>
@@ -60,8 +58,9 @@ const LoginForm = () => {
         <div >
         <h2 className='login-form-header'>Log in to Yap</h2>
         </div>
-        <div >
-        <p className='link-to-signup'> New to Yap? Sign up</p>
+        <div className='header-2'>
+        <p className='link-to-signup'> New to Yap?</p>
+        <NavLink className='signup-link' to='/sign-up'> Sign Up</NavLink>
         </div>
         <div >
         <p className='app-description'>Yap is a fullstack application inspired by "Yelp"</p>
