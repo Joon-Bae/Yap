@@ -33,6 +33,7 @@ function NewBusinessForm() {
     useEffect(() => {
         const validationErrors = [];
         if (!title.length) validationErrors.push("Title is required");
+        //do less than for title and description
         if (title.length > 100) validationErrors.push("Title must be 100 characters or less");
         if (!description.length) validationErrors.push("Description is required");
         if (description.length > 255) validationErrors.push("Description must be 255 characters or less");
