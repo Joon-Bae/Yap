@@ -1,0 +1,67 @@
+.footer-container {
+    background-color: #fafafa;
+    font-family: 'Roboto', sans-serif;
+    height:190px;
+}
+
+.creator-footer {
+    display:flex;
+    justify-content: center;
+}
+
+.footer-li {
+    font-size: 13px;
+    color: #8e8e8e;
+}
+
+.github-logo {
+    height:20px;
+    width:20px;
+    margin-left:0.5rem;
+    margin-top:0.6rem
+}
+
+.linkedin-logo {
+    height:20px;
+    width:20px;
+    margin-left:0.5rem;
+    margin-top:0.6rem
+}
+
+li {
+    list-style: none;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.socials {
+    margin-top: -0.8rem;
+    margin-left: 2.4rem;
+}
+
+.joon-footer {
+    margin-top: 1rem;
+    margin-right: 7rem;
+}
+
+.technologies-1 {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.technologies-2{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.technologies-used {
+    margin-top: 0.9rem;
+    margin-right: 7rem;
+}
+
+.technologies-used-cont {
+    margin-top: 0.9rem;
+}

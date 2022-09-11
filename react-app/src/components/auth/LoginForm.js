@@ -4,7 +4,9 @@ import { NavLink, Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import welcomeImage from '../../Images/signup_illustration.png'
 import yelpLogo from '../../Images/yelp-logo-3.png'
+import githubLogo from '../../Images/github-logo.svg'
 import './LoginForm.css'
+import Footer from '../Footer/footer.js'
 
 
 const LoginForm = () => {
@@ -97,6 +99,12 @@ const LoginForm = () => {
         <div className='demo-user-container'>
           <button onClick={handleDemoUser} className='login-button-demo'>Demo User</button>
         </div>
+        <div className='landing-project-repo'>
+                Check out the project repo here
+                <a target='_blank' href='https://github.com/Joon-Bae/Yap'>
+                <img className='project-repo-image' src={githubLogo}/>
+                </a>
+          </div>
         <div style={{ marginTop: 20 }} className='errors'>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
@@ -107,6 +115,7 @@ const LoginForm = () => {
             <img className='welcome-image' src={welcomeImage}/>
       </div>
     </div>
+          <Footer />
     </>
   );
 };
