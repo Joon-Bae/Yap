@@ -50,7 +50,7 @@ input:focus {
 }
 
 .login-form-container-main {
-    height: 70vh;
+    height: 62vh;
     padding: 10px;
     font-family: 'Roboto', sans-serif;
     max-width: 260px;
@@ -168,4 +168,21 @@ input:focus {
 .header-2{
     display: flex;
     align-items: center;
+}
+
+.landing-project-repo {
+    background-color: white;
+    font-size: 14px;
+    border: 1px solid #dbdbdb;
+    margin-top: 1.6rem;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    width: 234px;
+}
+
+.project-repo-image {
+    height:35px;
+    width:35px;
+    margin-left:1rem;
 }
