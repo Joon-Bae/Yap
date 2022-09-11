@@ -1,0 +1,60 @@
+.edit-review-page {
+    display: column;
+    justify-content: center;
+}
+
+.edit-review-form {
+    border: 1px solid #dbdbdb;
+    width: 500px;
+    border-radius: 4px;;
+}
+
+.edit-review-input {
+    width:460px;
+    max-width:455px;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 1rem;
+    margin-top: 1.4rem;
+}
+
+.edit-review-textarea {
+    width:460px;
+    max-width:460px;
+    height: 200px;
+    font-size: 17px;
+    overflow-y: hidden;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    margin-left: 1.5rem;
+    margin-right: 1rem;
+    resize:none
+}
+
+.buttons-div-editreview {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.edit-review-btn {
+    cursor: pointer;
+    width: 210px;
+    height: 37px;
+    padding: 5px 9px;
+    background-color: rgb(235, 15, 15);
+    color: white;
+    border: none;
+    margin-top: 1rem;
+}
+
+.edit-review-btn:hover {
+    cursor: pointer;
+    width: 210px;
+    height: 37px;
+    padding: 5px 9px;
+    background-color: rgb(246, 7, 7);
+    box-shadow: 1px 1px rgb(55, 55, 55);
+    color: white;
+    border: none;
+    margin-top: 1rem;
+}
+
