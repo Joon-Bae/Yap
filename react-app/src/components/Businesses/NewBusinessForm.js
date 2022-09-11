@@ -98,7 +98,7 @@ function NewBusinessForm() {
             )
             }
             <div>
-                <label className='new-business-label'>Business Title*</label>
+                <label className='edit-business-label'>Business Title*</label>
                 <input
                     className='new-business-input'
                     placeholder='Title'
