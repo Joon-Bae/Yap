@@ -2,6 +2,9 @@ import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom"
 import { createNewBusiness } from "../../store/businesses"
+import yelpLogo from '../../Images/yelp-logo-3.png'
+import businessImage from '../../Images/yelp-business.png'
+import './NewBusinessForm.css'
 
 const states = [
     'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
@@ -66,13 +69,24 @@ function NewBusinessForm() {
         history.push('/home')
     }
 
+    const sendHome = () => {
+        history.push('/home')
+    }
+
     return (
+        <>
+        <div className='header-top-login'>
+        <div>
+        <img onClick={sendHome} className='yelp-logo' src={yelpLogo}/>
+        </div>
+    </div>
         <div className="new-business-page">
         <form
             className="business-form"
             onSubmit={handleSubmit}
         >
             <h2 className='new-business-prompt'>Add Your Business</h2>
+            <h3 className='new-business-guide'> Add information about your business below. Any fields marked with an asterisk(*) are required fields </h3>
             {errors.length > 0 && (
             <ul className="errors">
                 {
@@ -84,6 +98,7 @@ function NewBusinessForm() {
             )
             }
             <div>
+                <label className='new-business-label'>Business Title*</label>
                 <input
                     className='new-business-input'
                     placeholder='Title'
@@ -94,6 +109,7 @@ function NewBusinessForm() {
                 />
             </div>
             <div>
+            <label className='new-business-label'>Business Description*</label>
                 <textarea
                     className='new-business-input'
                     type="text"
@@ -104,6 +120,7 @@ function NewBusinessForm() {
                 />
             </div>
             <div>
+                <label className='new-business-label'>Address 1*</label>
                 <input
                     className='new-business-input'
                     type="text"
@@ -114,6 +131,7 @@ function NewBusinessForm() {
                 />
             </div>
             <div>
+                <label className='new-business-label'>Address 2</label>
                 <input
                     className='new-business-input'
                     type="text"
@@ -124,6 +142,7 @@ function NewBusinessForm() {
                 />
             </div>
             <div>
+                <label className='new-business-label'>City*</label>
                 <input
                     className='new-business-input'
                     type="text"
@@ -134,6 +153,7 @@ function NewBusinessForm() {
                 />
             </div>
             <div>
+                <label className='new-business-label'>State*</label>
                 <select
                     className='new-business-input'
                     type="text"
@@ -147,6 +167,7 @@ function NewBusinessForm() {
                 </select>
             </div>
             <div>
+                <label className='new-business-label'>Zip Code*</label>
                 <input
                     className='new-business-input'
                     type="number"
@@ -157,6 +178,7 @@ function NewBusinessForm() {
                 />
             </div>
             <div>
+                <label className='new-business-label'>Image</label>
                 <input
                     className='new-business-input'
                     type="text"
@@ -175,7 +197,11 @@ function NewBusinessForm() {
                 Add this business
             </button>
         </form>
+        <div className='add-business-image-right'>
+            <img className='business-image1' src={businessImage}/>
+      </div>
         </div>
+        </>
     );
 }
 

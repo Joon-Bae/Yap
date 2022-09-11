@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import { Redirect } from 'react-router-dom'
 import  BusinessCard from '../Businesses/BusinessesCard'
 import NavBar from "../NavBar"
+import Footer from "../Footer/footer"
 import './homepage.css'
 
 
@@ -28,6 +29,7 @@ export default function Home({ businesses }) {
             <BusinessCard/>
             </div>
         </div>
+        <Footer />
         </>
     )
 }

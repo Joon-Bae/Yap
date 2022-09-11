@@ -1,6 +1,7 @@
 .homepage-main {
     display: column;
     align-items: center;
+    margin-bottom: 25.4rem;
 }
 
 .review-statement {
@@ -10,3 +11,5 @@
     font-size: 28px;
     font-weight: 700;
 }
+
+

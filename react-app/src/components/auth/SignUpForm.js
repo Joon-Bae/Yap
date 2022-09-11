@@ -51,9 +51,9 @@ const SignUpForm = () => {
   return (
     <>
     <div className='header-top-login'>
-        <div>
+        <NavLink to ='/home'>
         <img className='yelp-logo' src={yelpLogo}/>
-        </div>
+      </NavLink>
     </div>
     <div className='signup-form-container-main'>
    
