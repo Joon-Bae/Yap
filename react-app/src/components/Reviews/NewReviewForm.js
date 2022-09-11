@@ -16,6 +16,7 @@ function NewReviewForm() {
         const validationErrors = [];
         if (!rating.length) validationErrors.push("Rating is required");
         if (rating.length > 1) validationErrors.push("Please enter a number between 1 and 5");
+        if (rating < 1 || rating > 5) validationErrors.push("Rating must be greater than 1 and less than 5");
         if (!review.length) validationErrors.push("Review is required");
         if (review.length < 5 || review.length > 400) validationErrors.push("Review must be between 5 and 400 characters");
 

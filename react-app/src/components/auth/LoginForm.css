@@ -130,6 +130,10 @@ input:focus {
     font-weight: 700;
 }
 
+.signup-link:hover {
+    text-decoration: underline;
+}
+
 .app-description {
     font-size: 11.4px;;
     margin-top: -0.1rem;

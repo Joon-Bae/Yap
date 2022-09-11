@@ -7,6 +7,7 @@ import { getAllReviews } from "../../store/reviews"
 import { removeReview } from "../../store/reviews"
 import trashCan from '../../Images/trashcan.svg'
 import editReview from '../../Images/edit-review.svg'
+import NavBar from "../NavBar"
 import './individualbusiness.css'
 
 export default function IndividualBusiness () {
@@ -44,8 +45,13 @@ export default function IndividualBusiness () {
         history.push(`/reviews/${review[key].id}/edit`)
     }
 
+    const sendNewReview = () => {
+        history.push(`/businesses/${business.id}/reviews/new`)
+    }
+
     return (
         <div className='individual-business-page'>
+            <NavBar/>
             <div className='business-information'>
             {sessionUser.id === business?.ownerId ? (
 		    <div>
@@ -76,6 +82,10 @@ export default function IndividualBusiness () {
 				    <p className='business-city'>{business?.city}</p>
 				    <p className='business-state'>{business?.state}</p>
 				    <p className='business-zip'>{business?.zipCode}</p>
+                </div>
+                <div className='new-review-button'>
+                <button className='editbusiness-btn' onClick={sendNewReview}>
+			        Write Review</button>
                 </div>
 
 			</span>

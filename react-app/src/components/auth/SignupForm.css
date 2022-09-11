@@ -48,3 +48,7 @@
     text-decoration: none;
     font-weight: 700;
 }
+
+.login-link:hover{
+    text-decoration: underline;
+}
