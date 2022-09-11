@@ -2,6 +2,9 @@ import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from "react-router-dom"
 import { editBusiness } from "../../store/businesses"
+import yelpLogo from '../../Images/yelp-logo-3.png'
+import businessImage from '../../Images/yelp-business.png'
+import './EditBusiness.css'
 
 const states = [
     'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
@@ -67,7 +70,17 @@ function EditBusinessForm() {
         history.push('/home')
     }
 
+    const sendHome = () => {
+        history.push('/home')
+    }
+
     return (
+        <>
+        <div className='header-top-login'>
+        <div>
+        <img onClick={sendHome} className='yelp-logo' src={yelpLogo}/>
+        </div>
+        </div>
         <div className="edit-business-page">
         <form
             className="edit-business-form"
@@ -85,6 +98,7 @@ function EditBusinessForm() {
             )
             }
             <div>
+            <label className='edit-business-label'>Business Title*</label>
                 <input
                     className='edit-business-input'
                     placeholder='Title'
@@ -95,8 +109,9 @@ function EditBusinessForm() {
                 />
             </div>
             <div>
+            <label className='edit-business-label'>Business Description*</label>
                 <textarea
-                    className='edit-business-input'
+                    className='edit-business-text'
                     type="text"
                     placeholder='Description'
                     name="description"
@@ -105,6 +120,7 @@ function EditBusinessForm() {
                 />
             </div>
             <div>
+            <label className='edit-business-label'>Address 1*</label>
                 <input
                     className='edit-business-input'
                     type="text"
@@ -115,6 +131,7 @@ function EditBusinessForm() {
                 />
             </div>
             <div>
+            <label className='edit-business-label'>Address 2</label>
                 <input
                     className='edit-business-input'
                     type="text"
@@ -125,6 +142,7 @@ function EditBusinessForm() {
                 />
             </div>
             <div>
+            <label className='edit-business-label'>City*</label>
                 <input
                     className='edit-business-input'
                     type="text"
@@ -135,8 +153,9 @@ function EditBusinessForm() {
                 />
             </div>
             <div>
+            <label className='edit-business-label'>State*</label>
                 <select
-                    className='edit-business-input'
+                    className='edit-business-select'
                     type="text"
                     placeholder='State'
                     name="state"
@@ -148,6 +167,7 @@ function EditBusinessForm() {
                 </select>
             </div>
             <div>
+            <label className='edit-business-label'>Zip Code*</label>
                 <input
                     className='edit-business-input'
                     type="text"
@@ -158,6 +178,7 @@ function EditBusinessForm() {
                 />
             </div>
             <div>
+            <label className='edit-business-label'>Image</label>
                 <input
                     className='edit-business-input'
                     type="text"
@@ -168,7 +189,7 @@ function EditBusinessForm() {
                 />
             </div>
             <button
-                className='submit-business-btn'
+                className='edit-business-btn'
                 type="submit"
                 disabled={errors.length > 0}
                 onClick={(e) => handleSubmit(e)}
@@ -176,7 +197,11 @@ function EditBusinessForm() {
                 Edit this business
             </button>
         </form>
+        <div className='add-business-image-right'>
+            <img className='business-image1' src={businessImage}/>
+      </div>
         </div>
+        </>
     );
 }
 

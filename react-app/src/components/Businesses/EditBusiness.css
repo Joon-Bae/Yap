@@ -1,0 +1,54 @@
+.edit-business-form {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 360px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.edit-business-page {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-business-label {
+    font-weight: bold;
+    font-size: 13px;
+    margin-left: 0.3rem;
+}
+
+.edit-business-input {
+    width: 360px;
+    height: 25px;
+    margin:4px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    outline: none;
+    background-color: white;
+    padding: 3px;
+    margin-bottom: 0.8rem;
+}
+
+select {
+    width: 367px;
+    height: 25px;
+    margin:4px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    outline: none;
+    background-color: white;
+    padding: 3px;
+    margin-bottom: 0.8rem;
+}
+
+.edit-business-btn {
+    cursor: pointer;
+    width: 270px;
+    height: 37px;
+    padding: 5px 9px;
+    background-color: rgb(235, 15, 15);
+    color: white;
+    border: none;
+    margin-top: 1rem;
+}
