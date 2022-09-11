@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import welcomeImage from '../../Images/signup_illustration.png'
+import yelpLogo from '../../Images/yelp-logo-3.png'
+import githubLogo from '../../Images/github-logo.svg'
+import Footer from '../Footer/footer.js'
+import './SignupForm.css'
+
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -39,55 +45,93 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/home' />;
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
+    <>
+    <div className='header-top-login'>
+        <div>
+        <img className='yelp-logo' src={yelpLogo}/>
+        </div>
+    </div>
+    <div className='signup-form-container-main'>
+   
+    <form  className='signup-form' onSubmit={onSignUp}>
+      {/* <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
-      </div>
+      </div> */}
+       <div className='signup-title-container'>
+        <div >
+        <h2 className='signup-form-header'>Sign Up to Yap</h2>
+        </div>
+        <div className='header-2'>
+        <p className='link-to-login'> Already have an account?</p>
+        <NavLink className='login-link' to='/login'> Log In</NavLink>
+        </div>
+        <div >
+        <p className='app-description'>Yap is a fullstack application inspired by "Yelp"</p>
+        </div>
+         </div>
       <div>
-        <label>User Name</label>
         <input
           type='text'
           name='username'
+          placeholder='User Name'
           onChange={updateUsername}
           value={username}
         ></input>
       </div>
       <div>
-        <label>Email</label>
         <input
           type='text'
           name='email'
+          placeholder='Email'
           onChange={updateEmail}
           value={email}
         ></input>
       </div>
       <div>
-        <label>Password</label>
+
         <input
           type='password'
           name='password'
+          placeholder='Password'
           onChange={updatePassword}
           value={password}
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
         <input
           type='password'
           name='repeat_password'
+          placeholder='Confirm Password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button className='signup-button' type='submit'>Sign Up</button>
+      <div className='landing-project-repo'>
+                Check out the project repo here
+                <a target='_blank' href='https://github.com/Joon-Bae/Yap'>
+                <img className='project-repo-image' src={githubLogo}/>
+                </a>
+          </div>
+      <div style={{ marginTop: 20 }} className='errors'>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
     </form>
+    <div className='login-image-right'>
+            <img className='welcome-image' src={welcomeImage}/>
+      </div>
+  </div>
+  <Footer />
+    </>
   );
 };
 

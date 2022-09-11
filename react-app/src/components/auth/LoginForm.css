@@ -53,9 +53,8 @@ input:focus {
     height: 62vh;
     padding: 10px;
     font-family: 'Roboto', sans-serif;
-    max-width: 260px;
     display:flex;
-    margin-left:36rem;
+    justify-content: center;
     margin-top:6rem;
 }
 
