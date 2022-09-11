@@ -1,0 +1,90 @@
+.new-business-page {
+display: flex;
+justify-content: center;
+}
+
+.yelp-logo:hover {
+    cursor: pointer;
+}
+
+.business-form {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 360px;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+input {
+    width: 360px;
+    height: 25px;
+    margin:4px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    outline: none;
+    background-color: white;
+    padding: 3px;
+    margin-bottom: 0.8rem;
+}
+
+select {
+    width: 367px;
+    height: 25px;
+    margin:4px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    outline: none;
+    background-color: white;
+    padding: 3px;
+    margin-bottom: 0.8rem;
+}
+
+textarea {
+    width: 360px;
+    height: 50px;
+    margin:4px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    outline: none;
+    background-color: white;
+    padding: 3px;
+}
+
+input:focus {
+    border-color: #aaa;
+}
+
+.business-image1 {
+    height: 400px;
+    width:400px;
+    margin-top: 1rem;
+    margin-left: 5rem;
+}
+
+.new-business-guide {
+    font-size: 14px;
+    margin-top: -1rem;
+}
+
+.new-business-prompt {
+    font-size: 30px;
+}
+
+.new-business-label {
+    font-weight: bold;
+    font-size: 13px;
+    margin-left: 0.3rem;
+}
+
+.submit-business-btn {
+    cursor: pointer;
+    width: 270px;
+    height: 37px;
+    padding: 5px 9px;
+    background-color: rgb(235, 15, 15);
+    color: white;
+    border: none;
+    margin-top: 1rem;
+}
