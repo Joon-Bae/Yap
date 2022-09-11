@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import { Redirect } from 'react-router-dom'
 import  BusinessCard from '../Businesses/BusinessesCard'
 import NavBar from "../NavBar"
+import './homepage.css'
 
 
 export default function Home({ businesses }) {
@@ -17,12 +18,16 @@ export default function Home({ businesses }) {
     }
 
     return (
+        <>
+        <NavBar />
         <div className='homepage-main'>
-            <NavBar />
-            <h1>Welcome to the home page</h1>
+            <div>
+            <h1 className='review-statement'>Your Next Review Awaits</h1>
+            </div>
             <div className='businesses-homepage'>
             <BusinessCard/>
             </div>
         </div>
+        </>
     )
 }

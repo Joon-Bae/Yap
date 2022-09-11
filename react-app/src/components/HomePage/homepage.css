@@ -1,0 +1,12 @@
+.homepage-main {
+    display: column;
+    align-items: center;
+}
+
+.review-statement {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+}
