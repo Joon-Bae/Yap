@@ -26,7 +26,7 @@
     cursor: default;
 }
 
-input {
+.login-input {
     width: 260px;
     height: 25px;
     margin:4px;

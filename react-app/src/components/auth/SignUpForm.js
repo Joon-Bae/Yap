@@ -77,6 +77,7 @@ const SignUpForm = () => {
          </div>
       <div>
         <input
+        className='signup-input'
           type='text'
           name='username'
           placeholder='User Name'
@@ -86,6 +87,7 @@ const SignUpForm = () => {
       </div>
       <div>
         <input
+        className='signup-input'
           type='text'
           name='email'
           placeholder='Email'
@@ -96,6 +98,7 @@ const SignUpForm = () => {
       <div>
 
         <input
+        className='signup-input'
           type='password'
           name='password'
           placeholder='Password'
@@ -105,6 +108,7 @@ const SignUpForm = () => {
       </div>
       <div>
         <input
+        className='signup-input'
           type='password'
           name='repeat_password'
           placeholder='Confirm Password'
