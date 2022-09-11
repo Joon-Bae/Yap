@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
-import { useHistory, useParams } from "react-router-dom"
+import { NavLink, useHistory, useParams } from "react-router-dom"
 import { editReview } from "../../store/reviews.js";
+import whiteYelpLogo from '../../Images/yelp-logo-4.png'
+import './EditReviewForm.css'
 
 
 function EditReviewForm() {
@@ -9,6 +11,7 @@ function EditReviewForm() {
     const { id } = useParams();
     const userId = useSelector((state) => state.session.user.id)
     const individualReview = useSelector((state) => state.reviews.normalizedReviews[id])
+    const business = useSelector((state) => state?.businesses?.normalizedBusinesses[individualReview?.businessId])
     const [ rating, setRating ] = useState('')
     const [ review, setReview ] = useState('')
     const [ errors, setErrors ] = useState([])
@@ -38,10 +41,25 @@ function EditReviewForm() {
         history.push(`/businesses/${individualReview.businessId}`)
     }
 
-
+    const cancelReview = () => {
+        history.push(`/businesses/${individualReview.businessId}`)
+    }
 
     return (
+        <>
+        <div className='header-top-new-review'>
+        <div >
+            <NavLink to='/home'>
+            <img className='yelp-logo-new-review'src={whiteYelpLogo}/>
+            </NavLink>
+        </div>
+        <div>
+        <img className='profile-icon' src={ 'https://nitreo.com/img/igDefaultProfilePic.png'} />
+        </div>
+    </div>
+        <div className='review-form-container'>
         <div className='edit-review-page'>
+        <h2 className='business-title-1'>{business?.title}</h2>
            <form
             className="edit-review-form"
             onSubmit={handleSubmit}
@@ -58,7 +76,7 @@ function EditReviewForm() {
             </div>
             <div>
                 <textarea
-                    className='edit-review-input'
+                    className='edit-review-textarea'
                     type="text"
                     placeholder={individualReview?.review}
                     name="review"
@@ -66,21 +84,32 @@ function EditReviewForm() {
                     onChange={(e) => setReview(e.target.value)}
                 />
             </div>
-            <button
-                className='submit-review-btn'
-                type="submit"
-                disabled={errors.length > 0}
-                onClick={(e) => handleSubmit(e)}
-            >
-                Edit Review
-            </button>
             <div className='errors'>
                 {errors.map((error, ind) => (
                     <div key={ind}>{error}</div>
                 ))}
             </div>
         </form>
+        <div className='buttons-div-editreview'>
+        <button
+                className='edit-review-btn'
+                type="submit"
+                disabled={errors.length > 0}
+                onClick={(e) => handleSubmit(e)}
+            >
+                Edit Review
+            </button>
+            <button
+            className='cancel-btn'
+            type="submit"
+            onClick={(e) => cancelReview()}
+            >
+            Cancel
+            </button>
+            </div>
         </div>
+        </div>
+        </>
     )
 }
 
