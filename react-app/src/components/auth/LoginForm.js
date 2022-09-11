@@ -115,7 +115,7 @@ const LoginForm = () => {
             <img className='welcome-image' src={welcomeImage}/>
       </div>
     </div>
-          <Footer />
+    <Footer />
     </>
   );
 };
