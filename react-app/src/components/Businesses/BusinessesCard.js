@@ -24,9 +24,9 @@ export default function BusinessesCard () {
                     <div key={`${business.id}`} className='business-card'>
                         <div>
                         <img className='business-image' onError={({ target }) => {
-                    target.onError = null
-                    target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvIKnUwCra_oSB-sJvyWgzYtnRnhagEg_byQ&usqp=CAU"
-                  }} src={business.imageUrl}></img>
+                        target.onError = null
+                        target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvIKnUwCra_oSB-sJvyWgzYtnRnhagEg_byQ&usqp=CAU"
+                  }}    src={business.imageUrl}/>
                         </div>
                         <div className='title-container'>
                         <NavLink className='business-title-link' key={`${business.id}`} to={`/businesses/${business.id}`}>

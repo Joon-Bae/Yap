@@ -80,7 +80,10 @@ export default function IndividualBusiness () {
             <div className='business-information'>
             {sessionUser.id === business?.ownerId ? (
 		    <div className='business-information-inner-container'>
-            <img className='individual-business-image' src={business?.imageUrl}/>
+            <img className='individual-business-image' onError={({ target }) => {
+                        target.onError = null
+                        target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvIKnUwCra_oSB-sJvyWgzYtnRnhagEg_byQ&usqp=CAU"
+                  }}    src={business?.imageUrl}/>
             <div className='business-details'>
 		        <h1  className='business-title'>{business.title}</h1>
                 <div className='editdelete-business-container'>
@@ -107,7 +110,10 @@ export default function IndividualBusiness () {
 		    </div>
 		) : (
 			<span>
-                <img className='individual-business-image' src={business?.imageUrl}/>
+                <img className='individual-business-image' onError={({ target }) => {
+                        target.onError = null
+                        target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvIKnUwCra_oSB-sJvyWgzYtnRnhagEg_byQ&usqp=CAU"
+                  }}    src={business?.imageUrl}/>
                 <div className='business-details'>
 
 				<h1 className='business-title'>{business?.title}</h1>
