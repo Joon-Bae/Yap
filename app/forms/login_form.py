@@ -9,7 +9,7 @@ def user_exists(form, field):
     email = field.data
     user = User.query.filter(User.email == email).first()
     if not user:
-        raise ValidationError('Invalid Credentials were provided.')
+        raise ValidationError('Invalid credentials were provided.')
 
 
 def password_matches(form, field):
