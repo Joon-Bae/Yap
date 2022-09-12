@@ -30,9 +30,28 @@
 ![68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6865726f6b752d2532333433303039382e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d6865726f6b75266c6f676f436f6c6f723d7768697465](https://user-images.githubusercontent.com/94085979/187011832-f41fd6fb-9845-4e2b-8423-4c58848612a4.svg)
 
 
+# Sign Up
+![yap-signup](https://user-images.githubusercontent.com/94085979/189623842-604ca5c4-a6ab-4d7d-837f-fb92238b2834.png)
 
 
+# Log In
+![yap-login](https://user-images.githubusercontent.com/94085979/189623852-df3df87b-4f2d-498e-af12-961883f990c5.png)
 
+# Home Page
+![yap-home-page](https://user-images.githubusercontent.com/94085979/189625081-dfd679af-2729-4e70-b3ad-fe7d3cb2cfa9.png)
+
+
+# Create Business
+![yap-create-business](https://user-images.githubusercontent.com/94085979/189624382-d15c593e-8e13-49b7-85e0-1ce35ae527d7.png)
+
+# Edit Business
+![yap-edit-business](https://user-images.githubusercontent.com/94085979/189624601-42b8e9da-89ea-48f6-b475-9cd8570a623f.png)
+
+# Create Review
+![yap-create-review](https://user-images.githubusercontent.com/94085979/189624784-f994b76b-e55d-4e39-ba98-989b46f25bf2.png)
+
+# Business Page
+![yap-individual-business](https://user-images.githubusercontent.com/94085979/189624997-15acc2f1-1952-4805-9142-21ddf92a5c29.png)
 
 
 
