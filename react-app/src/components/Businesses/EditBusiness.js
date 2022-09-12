@@ -6,6 +6,7 @@ import yelpLogo from '../../Images/yelp-logo-3.png'
 import businessImage from '../../Images/yelp-business.png'
 import './EditBusiness.css'
 
+
 const states = [
     'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
     'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
@@ -72,7 +73,9 @@ function EditBusinessForm() {
         }
         dispatch(editBusiness(formValues))
         console.log(formValues)
-        history.push('/home')
+        if (errors.length === 0) {
+            history.push('/home')
+        }
     }
 
     const sendHome = () => {

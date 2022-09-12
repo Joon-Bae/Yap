@@ -8,6 +8,7 @@ import { removeReview } from "../../store/reviews"
 import trashCan from '../../Images/trashcan.svg'
 import editReview from '../../Images/edit-review.svg'
 import NavBar from "../NavBar"
+import { FaStar } from 'react-icons/fa'
 import './individualbusiness.css'
 
 export default function IndividualBusiness () {
@@ -19,6 +20,13 @@ export default function IndividualBusiness () {
     const reviews = useSelector((state) => Object.values(state.reviews.normalizedReviews))
     const review = useSelector((state) => state.reviews.normalizedReviews)
     const businessReview = reviews.filter(review  => +businessId === +review.businessId)
+
+    const colors = {
+        'gold': "rgb(255, 201, 18)",
+        'gray': "rgb(153, 153, 153)"
+    }
+
+    const rate = Array(5).fill(0)
 
     useEffect(() => {
     dispatch(getAllBusinesses())
@@ -95,7 +103,26 @@ export default function IndividualBusiness () {
                 return (
                     <div key={idx} className='review-container'>
                         <div className='review-information'>
-                        <p>{review.rating}</p>
+                        <div className='individual-business-review-stars'>
+                            <div className='business-review-stars-inner' style={{ display: 'flex' }}>
+                                {rate.map((_, i) => {
+                                    // const input = i + 1;
+                                    return (
+                                        <div style={{ display: 'flex', flexDirection: 'row' }}>
+                                            <FaStar
+                                                key={i}
+                                                size={25}
+                                                isFilled={review.rating}
+                                                style={{
+                                                    marginRight: 10
+                                                }}
+                                                color={i <= (review.rating - 1) ? colors.gold : colors.gray}
+                                            ></FaStar>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
                             { sessionUser.id === review.userId ? (
                             <>
                             <div className="delete-review-button">

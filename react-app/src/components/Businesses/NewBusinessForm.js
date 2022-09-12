@@ -54,7 +54,21 @@ function NewBusinessForm() {
     }, [title, description, address1, address2, city, state, zipCode]);
 
     const handleSubmit = (e) => {
+        console.log("***************** inside handlesumbit")
         e.preventDefault();
+        const checkurl = async () => {
+            const response = await fetch(imageUrl)
+            if(response.ok){
+                console.log('things went well')
+            } else {
+                console.log('things didnt go well :(')
+            }
+            return response
+        }
+
+        let idk = checkurl(imageUrl)
+        console.log(idk, "this is idk")
+
         const formValues = {
             ownerId,
             title,
@@ -74,6 +88,8 @@ function NewBusinessForm() {
     const sendHome = () => {
         history.push('/home')
     }
+
+
 
     return (
         <>

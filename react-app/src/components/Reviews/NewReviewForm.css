@@ -127,3 +127,13 @@
 .business-title-1 {
     font-weight: 800;
 }
+
+.new-star-rating-container {
+    margin-bottom: 1rem;
+    margin-left: 1.6rem;
+    margin-top: 1rem;
+}
+
+.new-star-rating-inner {
+    display:flex
+}

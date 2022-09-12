@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { NavLink, useHistory, useParams } from "react-router-dom"
 import { createNewReview } from '../../store/reviews'
 import whiteYelpLogo from '../../Images/yelp-logo-4.png'
+import { FaStar } from 'react-icons/fa'
 import './NewReviewForm.css'
 
 function NewReviewForm() {
@@ -10,19 +11,32 @@ function NewReviewForm() {
     const { businessId } = useParams();
     const userId = useSelector((state) => state?.session?.user?.id)
     const business = useSelector((state) => state?.businesses?.normalizedBusinesses[businessId])
-    const [ rating, setRating ] = useState('')
+    const [ rating, setRating ] = useState(0)
     const [ review, setReview ] = useState('')
     const [ errors, setErrors ] = useState([])
+    const [ratingHover, setRatingHover] = useState(null);
     const history = useHistory();
 
     if (business === undefined) {
         history.push(`/businesses/${businessId}`)
     }
 
+    const colors = {
+        'gold': "rgb(255, 201, 18)",
+        'gray': "rgb(153, 153, 153)"
+    }
+    const rate = Array(5).fill(0)
+
+    const handleOnHover = value => {
+        setRatingHover(value)
+    };
+    const handleOnClose = () => {
+        setRatingHover(null)
+    };
+
     useEffect(() => {
         // getBusiness()
         const validationErrors = [];
-        if (!rating.length) validationErrors.push("Rating is required");
         if (rating.length > 1 || rating < 1 || rating > 5) validationErrors.push("Please enter a single number between 1 and 5");
         if (!review.length) validationErrors.push("Review is required");
         if (review.length < 5 || review.length > 400) validationErrors.push("Review must be between 5 and 400 characters");
@@ -83,16 +97,30 @@ function NewReviewForm() {
             className="new-review-form"
             onSubmit={handleSubmit}
         >
-            <div>
-                <input
-                    className='new-review-input'
-                    placeholder='Rating'
-                    type="number"
-                    name="rating"
-                    value={rating}
-                    onChange={(e) => setRating(e.target.value)}
-                />
-            </div>
+            <div className='new-star-rating-container'>
+                            <div className='new-star-rating-inner'>
+                                {rate.map((_, i) => {
+                                    const input = i + 1;
+                                    return (
+                                        <div style={{ display: 'flex', flexDirection: 'row' }}>
+                                            <FaStar
+                                                key={i}
+                                                size={30}
+                                                style={{
+                                                    marginRight: 10,
+                                                    cursor: 'pointer'
+                                                }}
+                                                color={input <= (rating || ratingHover) ? colors.gold : colors.gray}
+
+                                                onClick={() => setRating(input)}
+                                                onMouseEnter={() => handleOnHover(input)}
+                                                onMouseLeave={handleOnClose}
+                                            ></FaStar>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                            </div>
             <div>
                 <textarea
                     className='new-review-textarea'
