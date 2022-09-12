@@ -108,6 +108,7 @@
     margin-left: 18rem;
     max-width: 460px;
     font-family: 'Roboto', sans-serif;
+    word-break: break-word;
     margin-top: 1rem;
 }
 
@@ -150,4 +151,20 @@
     padding: 15px;
     margin-left: -0.8rem;
     margin-top: -0.9rem;
+}
+
+.username{
+    font-weight: bold;
+}
+
+
+.edit-delete-review-container {
+    display: flex;
+    margin-left:9.5rem;
+    margin-top: -0.8rem;
+    margin-bottom: 0.48rem;
+}
+
+.user-review {
+    margin-bottom: 4rem;
 }

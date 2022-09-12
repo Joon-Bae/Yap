@@ -23,6 +23,7 @@ export default function IndividualBusiness () {
     const reviews = useSelector((state) => Object.values(state.reviews.normalizedReviews))
     const review = useSelector((state) => state.reviews.normalizedReviews)
     const businessReview = reviews.filter(review  => +businessId === +review.businessId)
+    const userName = useSelector((state) => state?.businesses?.normalizedBusinesses[businessId]?.user?.username)
 
     const colors = {
         'gold': "rgb(255, 201, 18)",
@@ -158,11 +159,13 @@ export default function IndividualBusiness () {
                         </div>
                             { sessionUser.id === review.userId ? (
                             <>
-                            <div className="delete-review-button">
-                            <img onClick={() =>handleReviewDelete(review.id)} className='delete-review-image' src={trashCan}/>
-                            </div>
-                            <div className='edit-review-button'>
-                            <img onClick={() =>sendEditReview(review.id)} className='edit-review-image' src={editReview}/>
+                            <div className='edit-delete-review-container'>
+                                <div className="delete-review-button">
+                                <img onClick={() =>handleReviewDelete(review.id)} className='delete-review-image' src={trashCan}/>
+                                </div>
+                                <div className='edit-review-button'>
+                                <img onClick={() =>sendEditReview(review.id)} className='edit-review-image' src={editReview}/>
+                                </div>
                             </div>
                             </>
                             ) : null
@@ -172,7 +175,8 @@ export default function IndividualBusiness () {
 
                         </div>
                         <div>
-                        <p>{review.review}</p>
+
+                        <p className='user-review'>{review.review}</p>
                         </div>
                     </div>
 
