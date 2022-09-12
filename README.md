@@ -15,7 +15,7 @@
 </h3>
 
 <h4 align= "center" dir="auto">
-  <a href="https://github.com/Joon-Bae/Voughtstagram/wiki">» Explore the Wiki «</a>
+  <a href="https://github.com/Joon-Bae/Yap/wiki">» Explore the Wiki «</a>
 </h4>
 
 # Technologies Used
