@@ -33,10 +33,17 @@
     width:100px;
     height:40px;
     border-radius: 4px;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
     background-color: rgb(235, 15, 15);
 }
 
 .log-out-button:hover {
     cursor: pointer;
+    background-color: rgb(244, 17, 17);
+}
+
+.business-information {
+    display: column;
+    justify-content: center;
+    align-items: center;
 }
