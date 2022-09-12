@@ -43,16 +43,16 @@ function EditBusinessForm() {
     useEffect(() => {
         const validationErrors = [];
         if (!title?.length) validationErrors.push("Title is required");
-        if (title?.length > 100) validationErrors.push("Title must be 100 characters or less");
+        if (title?.trim().length > 100 || title?.trim().length < 5) validationErrors.push("Title must be 5 and 100 characters");
         if (!description?.length) validationErrors.push("Description is required");
-        if (description?.length > 255) validationErrors.push("Description must be 255 characters or less");
+        if (description?.trim().length > 255 || description?.trim().length < 5) validationErrors.push("Description must be between 5 and 255 characters");
         if (!address1?.length) validationErrors.push("Address 1 is required");
-        if (address1?.length > 255) validationErrors.push("Address must be 100 characters or less");
+        if (address1?.trim().length > 255 || address1?.trim().length < 5) validationErrors.push("Address must be between 5 and 255 characters");
         if (!city?.length) validationErrors.push("City is required");
-        if (city?.length > 50) validationErrors.push("City must be 50 characters or less");
+        if (city?.trim().length > 50 || city?.trim().length < 3) validationErrors.push("City must be between 3 and 50 characters");
         if (!state?.length) validationErrors.push("State is required");
         if (!zipCode?.length) validationErrors.push("Zip Code is required");
-        if (zipCode?.length > 5 || zipCode?.length < 5) validationErrors.push("Zip Code must be 5 numbers");
+        if (zipCode?.trim().length > 5 || zipCode?.trim().length < 5) validationErrors.push("Zip Code must be 5 numbers");
 
         setErrors(validationErrors);
     }, [title, description, address1, address2, city, state, zipCode]);

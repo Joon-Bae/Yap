@@ -30,6 +30,7 @@ function NewBusinessForm() {
     const [state, setState] = useState("Alabama")
     const [zipCode, setZipCode] = useState("")
     const [imageUrl, setImageUrl] = useState("")
+    const [isValid, setIsValid] = useState(false)
     const [errors, setErrors] = useState([]);
     const history = useHistory();
 
@@ -39,35 +40,44 @@ function NewBusinessForm() {
         const validationErrors = [];
         if (!title.length) validationErrors.push("Title is required");
         //do less than for title and description
-        if (title.length > 100) validationErrors.push("Title must be 100 characters or less");
+        if (title.trim().length > 100 || title.trim().length < 5) validationErrors.push("Title must be 5 and 100 characters");
         if (!description.length) validationErrors.push("Description is required");
-        if (description.length > 255) validationErrors.push("Description must be 255 characters or less");
+        if (description.trim().length > 255 || description.trim().length < 5) validationErrors.push("Description must be between 5 and 255 characters");
         if (!address1.length) validationErrors.push("Address 1 is required");
-        if (address1.length > 255) validationErrors.push("Address must be 100 characters or less");
+        if (address1.trim().length > 255 || address1.trim().length < 5) validationErrors.push("Address must be between 5 and 255 characters");
         if (!city.length) validationErrors.push("City is required");
-        if (city.length > 50) validationErrors.push("City must be 50 characters or less");
+        if (city.trim().length > 50 || city.trim().length < 3) validationErrors.push("City must be between 3 and 50 characters");
         if (!state.length) validationErrors.push("State is required");
         if (!zipCode.length) validationErrors.push("Zip Code is required");
-        if (zipCode.length > 5 || zipCode.length < 5) validationErrors.push("Zip Code must be 5 numbers");
+        if (zipCode.trim().length > 5 || zipCode.trim().length < 5) validationErrors.push("Zip Code must be 5 numbers");
+        if (imageUrl.trim().length === 0 || (/^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageUrl) === false)) validationErrors.push("Invalid image URL was provided. Format must be '.jpg', '.jpeg', '.png', '.webp', '.avif', '.gif' or '.svg' and also must include: 'https://'")
 
         setErrors(validationErrors);
-    }, [title, description, address1, address2, city, state, zipCode]);
+    }, [title, description, address1, address2, city, state, zipCode, imageUrl]);
+
+    function imageUrlCheck (imageUrl) {
+        if (!imageUrl || imageUrl.trimEnd().length === 0) return false
+        if (imageUrl && imageUrl.includes(' ')) return false
+        if (imageUrl && imageUrl.includes("File:")) return false
+
+        return /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(imageUrl);
+      }
 
     const handleSubmit = (e) => {
-        console.log("***************** inside handlesumbit")
+        // console.log("***************** inside handlesumbit")
         e.preventDefault();
-        const checkurl = async () => {
-            const response = await fetch(imageUrl)
-            if(response.ok){
-                console.log('things went well')
-            } else {
-                console.log('things didnt go well :(')
-            }
-            return response
-        }
+        // const checkurl = async () => {
+        //     const response = await fetch(imageUrl)
+        //     if(response.ok){
+        //         console.log('things went well')
+        //     } else {
+        //         console.log('things didnt go well :(')
+        //     }
+        //     return response
+        // }
 
-        let idk = checkurl(imageUrl)
-        console.log(idk, "this is idk")
+        // let idk = checkurl(imageUrl)
+        // console.log(idk, "this is idk")
 
         const formValues = {
             ownerId,
@@ -199,11 +209,15 @@ function NewBusinessForm() {
                 <label className='new-business-label'>Image</label>
                 <input
                     className='new-business-input'
-                    type="text"
+                    type="url"
                     placeholder='Image Url'
                     name="imageUrl"
                     value={imageUrl}
-                    onChange={(e) => setImageUrl(e.target.value)}
+                    onChange={(e) => {
+                        setImageUrl(e.target.value)
+                        setIsValid(imageUrlCheck(e.target.value))
+                        setErrors([])
+                      }}
                 />
             </div>
             <button

@@ -27,9 +27,9 @@ function EditReviewForm() {
 
     useEffect(() => {
         const validationErrors = [];
-        if (rating?.length > 1) validationErrors.push("Please enter a number between 1 and 5");
+        if (rating?.length > 1 || rating < 1 || rating > 5) validationErrors.push("Please enter a single number between 1 and 5");
         if (!review.length) validationErrors.push("Review is required");
-        if (review.length < 5 || review.length > 400) validationErrors.push("Review must be between 5 and 400 characters");
+        if (review.trim().length < 5 || review.trim().length > 400) validationErrors.push("Review must be between 5 and 400 characters");
 
     setErrors(validationErrors);
     }, [rating, review]);

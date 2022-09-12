@@ -23,14 +23,17 @@ export default function BusinessesCard () {
                 return (
                     <div key={`${business.id}`} className='business-card'>
                         <div>
-                            <img className='business-image'src={business.imageUrl ? business.imageUrl : 'https://protkd.com/wp-content/uploads/2017/04/default-image.jpg'}/>
+                        <img className='business-image' onError={({ target }) => {
+                    target.onError = null
+                    target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvIKnUwCra_oSB-sJvyWgzYtnRnhagEg_byQ&usqp=CAU"
+                  }} src={business.imageUrl}></img>
                         </div>
                         <div className='title-container'>
                         <NavLink className='business-title-link' key={`${business.id}`} to={`/businesses/${business.id}`}>
                             <div >
                              <p className='businesses-title'>{business.title}</p>
                            </div>
-                        </NavLink> 
+                        </NavLink>
                         <div className='business-address'>
                             <div className='business-city-state'>
                             <img className="location-icon" src={locationIcon}/>
