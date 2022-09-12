@@ -1,7 +1,7 @@
 .homepage-main {
     display: column;
     align-items: center;
-    margin-bottom: 25.4rem;
+    margin-bottom: 6rem;
 }
 
 .review-statement {
@@ -12,4 +12,23 @@
     font-weight: 700;
 }
 
+.landing-image-1 {
+    height:fit-content;
+    max-height: 600px;
+    width:100%;
+    object-fit: cover;
+}
 
+.landing-image-2 {
+    height:fit-content;
+    max-height: 600px;
+    width:100%;
+    object-fit: cover;
+}
+
+.landing-image-3 {
+    height:fit-content;
+    max-height: 600px;
+    width:100%;
+    object-fit: contain;
+}

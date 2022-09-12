@@ -60,6 +60,7 @@ export default function IndividualBusiness () {
     return (
         <div className='individual-business-page'>
             <NavBar/>
+            <img/>
             <div className='business-information'>
             {sessionUser.id === business?.ownerId ? (
 		    <div>

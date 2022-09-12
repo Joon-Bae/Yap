@@ -87,7 +87,7 @@ function NewReviewForm() {
             </NavLink>
         </div>
         <div>
-        <img className='profile-icon' src={ 'https://nitreo.com/img/igDefaultProfilePic.png'} />
+        {/* <img className='profile-icon' src={ 'https://nitreo.com/img/igDefaultProfilePic.png'} /> */}
         </div>
     </div>
         <div className='review-form-container'>
