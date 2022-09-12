@@ -16,10 +16,17 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
+# @business_routes.get('/<int:businessId>')
+# def get_one_business(businessId):
+#     print("inside the api route---------" )
+#     one_business = Business.query.filter(Business.id == businessId)
+#     print("this is one business===================")
+#     response = {'allBusinesses': [business.to_dict_with_user() for business in one_business]}
+#     return response
+
 # GET route for all businesses
 @business_routes.get('/')
 def get_all_business():
-
     all_business = Business.query.all()
     response = {'allBusinesses': [business.to_dict_with_user() for business in all_business]}
     return response

@@ -11,7 +11,7 @@ const NavBar = () => {
             Home
           </NavLink>
         </li>
-        
+
         <li>
           <NavLink to='/businesses/new' exact={true} activeClassName='active'>
            Create a business

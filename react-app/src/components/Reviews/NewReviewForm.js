@@ -15,7 +15,12 @@ function NewReviewForm() {
     const [ errors, setErrors ] = useState([])
     const history = useHistory();
 
+    if (business === undefined) {
+        history.push(`/businesses/${businessId}`)
+    }
+
     useEffect(() => {
+        // getBusiness()
         const validationErrors = [];
         if (!rating.length) validationErrors.push("Rating is required");
         if (rating.length > 1 || rating < 1 || rating > 5) validationErrors.push("Please enter a single number between 1 and 5");
@@ -24,6 +29,23 @@ function NewReviewForm() {
 
     setErrors(validationErrors);
     }, [rating, review]);
+
+
+    // useEffect(() => {
+    //    const response = fetch('/api/businesses/')
+    //    .then((response) => {
+    //     let data = response.json()
+    //    })
+    //    console.log(data)
+    // })
+    // const getBusiness = async () => {
+    //     console.log(businessId, "this is business Id front end")
+    //     const response = await fetch(`/api/businesses/${businessId}`)
+    //     const data = await response.json()
+    //     console.log(data, "************************* this is data")
+    //     setBusinesses(data)
+    // }
+    // console.log(businesses, "------------------------busineses")
 
     const handleSubmit = (e) => {
         e.preventDefault();
