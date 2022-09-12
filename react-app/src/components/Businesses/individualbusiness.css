@@ -133,6 +133,8 @@
 
 .about-the-business {
     font-weight: bold;
+    word-break: break-word;
+
 }
 
 .business-description {
@@ -140,6 +142,7 @@
     padding: 15px;
     margin-left: -0.8rem;
     margin-top: -0.9rem;
+    word-break: break-word;
 }
 
 .location {
