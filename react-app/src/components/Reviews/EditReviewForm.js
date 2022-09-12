@@ -5,6 +5,7 @@ import { editReview } from "../../store/reviews.js";
 import whiteYelpLogo from '../../Images/yelp-logo-4.png'
 import { getAllBusinesses } from "../../store/businesses.js";
 import { getAllReviews } from "../../store/reviews.js";
+import { FaStar } from 'react-icons/fa'
 import './EditReviewForm.css'
 
 
@@ -14,16 +15,19 @@ function EditReviewForm() {
     const userId = useSelector((state) => state.session.user.id)
     const individualReview = useSelector((state) => state.reviews.normalizedReviews[id])
     const business = useSelector((state) => state?.businesses?.normalizedBusinesses[individualReview?.businessId])
-    const [ rating, setRating ] = useState('')
+    const [ rating, setRating ] = useState(individualReview?.rating)
     const [ review, setReview ] = useState('')
     const [ errors, setErrors ] = useState([])
+    const [ratingHover, setRatingHover] = useState(null);
     const history = useHistory();
 
+    if (business === undefined) {
+        history.push(`/businesses/${businessId}`)
+    }
 
     useEffect(() => {
         const validationErrors = [];
-        if (!rating.length) validationErrors.push("Rating is required");
-        if (rating.length > 1) validationErrors.push("Please enter a number between 1 and 5");
+        if (rating?.length > 1) validationErrors.push("Please enter a number between 1 and 5");
         if (!review.length) validationErrors.push("Review is required");
         if (review.length < 5 || review.length > 400) validationErrors.push("Review must be between 5 and 400 characters");
 
@@ -33,6 +37,19 @@ function EditReviewForm() {
     if (business === undefined) {
         history.push(`/businesses/${businessId}`)
     }
+
+    const colors = {
+        'gold': "rgb(255, 201, 18)",
+        'gray': "rgb(153, 153, 153)"
+    }
+    const rate = Array(5).fill(0)
+
+    const handleOnHover = value => {
+        setRatingHover(value)
+    };
+    const handleOnClose = () => {
+        setRatingHover(null)
+    };
 
 
     const handleSubmit = (e) => {
@@ -72,16 +89,30 @@ function EditReviewForm() {
             className="edit-review-form"
             onSubmit={handleSubmit}
         >
-            <div>
-                <input
-                    className='edit-review-input'
-                    placeholder='Rating'
-                    type="number"
-                    name="rating"
-                    value={rating}
-                    onChange={(e) => setRating(e.target.value)}
-                />
-            </div>
+               <div className='new-star-rating-container'>
+                            <div className='new-star-rating-inner' style={{ display: 'flex' }}>
+                                {rate.map((_, i) => {
+                                    const input = i + 1;
+                                    return (
+                                        <div style={{ display: 'flex', flexDirection: 'row' }}>
+                                            <FaStar
+                                                key={i}
+                                                size={30}
+                                                style={{
+                                                    marginRight: 10,
+                                                    cursor: 'pointer'
+                                                }}
+                                                color={input <= (rating || ratingHover) ? colors.gold : colors.gray}
+
+                                                onClick={() => setRating(input)}
+                                                onMouseEnter={() => handleOnHover(input)}
+                                                onMouseLeave={handleOnClose}
+                                            ></FaStar>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                            </div>
             <div>
                 <textarea
                     className='edit-review-textarea'
