@@ -46,8 +46,17 @@ const SignUpForm = () => {
     if (email?.length > 0 && !email?.match(validEmailRegex)) {
       validationErrors.push("Please enter a valid email.")
     }
+    if (email?.trim().length > 255) {
+      validationErrors.push("Email Address cannot be longer than 255 characters")
+    }
+    if (username?.trim().length > 40) {
+      validationErrors.push("User Name cannot be longer than 40 characters")
+    }
+    if (password?.trim().length > 255 || repeatPassword?.trim().length > 255) {
+      validationErrors.push("Passwords cannot be longer than 255 characters")
+    }
     setErrors(validationErrors)
-  }, [email, password, repeatPassword])
+  }, [email, , username, password, repeatPassword])
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
