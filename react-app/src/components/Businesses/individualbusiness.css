@@ -23,3 +23,131 @@
 .review-information {
     display:flex;
 }
+
+.header-top-individual-business {
+    height: 90px;
+    background-color: white;
+    margin-top: -0.5rem;
+    width: 100%;
+    border-bottom: 1px solid #dbdbdb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.create-a-business-individual {
+    color: black;
+    font-weight: bold;
+    margin-right: 2.2rem;
+    margin-top: 0.8rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.individual-business-image {
+    width:1440px;
+    height:400px;
+}
+
+.individual-business-page {
+    display: flex;
+    justify-content: center;
+}
+
+.business-details {
+    margin-left: 18rem;
+    max-width: 460px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 6rem;
+}
+
+.editbusiness-btn {
+    background-color: rgb(235, 15, 15);
+    height:40px;
+    width:120px;
+    color: white;
+    border: 1px solid white;
+    margin-right:0.8rem;
+    border-radius: 4px;
+    margin-right:1rem;
+}
+
+.editbusiness-btn:hover {
+    background-color: rgb(247, 17, 17);
+    cursor:pointer;
+    height:40px;
+    color: white;
+    border: 1px solid white;
+    margin-right:0.8rem;
+    height:40px;
+    width:120px;
+}
+
+.deletebusiness-btn {
+    background-color: rgb(235, 15, 15);
+    color:white;
+    height:40px;
+    width:120px;
+    border-radius: 4px;
+    border: 1px solid white;
+}
+
+.deletebusiness-btn:hover {
+    background-color: rgb(247, 17, 17);
+    cursor:pointer;
+    height:27px;
+    color: white;
+    border: 1px solid white;
+    margin-right:0.8rem;
+    height:40px;
+    width:120px;
+}
+
+.business-reviews {
+    margin-left: 18rem;
+    max-width: 460px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 1rem;
+}
+
+.review-text {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.editdelete-business-container {
+    border-bottom: 1px solid #dbdbdb;
+    padding: 15px;
+    margin-left: -0.8rem;
+    margin-top: -0.9rem;
+}
+
+.new-review-button {
+    border-bottom: 1px solid #dbdbdb;
+    padding: 15px;
+    margin-left: -0.8rem;
+    margin-top: -0.9rem;
+}
+
+.about-the-business {
+    font-weight: bold;
+}
+
+.business-description {
+    border-bottom: 1px solid #dbdbdb;
+    padding: 15px;
+    margin-left: -0.8rem;
+    margin-top: -0.9rem;
+}
+
+.location {
+    font-weight: bold;
+}
+
+.business-zip {
+    border-bottom: 1px solid #dbdbdb;
+    padding: 15px;
+    margin-left: -0.8rem;
+    margin-top: -0.9rem;
+}

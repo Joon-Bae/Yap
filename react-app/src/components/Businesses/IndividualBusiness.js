@@ -7,6 +7,9 @@ import { getAllReviews } from "../../store/reviews"
 import { removeReview } from "../../store/reviews"
 import trashCan from '../../Images/trashcan.svg'
 import editReview from '../../Images/edit-review.svg'
+import whiteYelpLogo from '../../Images/yelp-logo-4.png'
+import LogoutButton from '../auth/LogoutButton'
+
 import NavBar from "../NavBar"
 import { FaStar } from 'react-icons/fa'
 import './individualbusiness.css'
@@ -58,48 +61,77 @@ export default function IndividualBusiness () {
     }
 
     return (
-        <div className='individual-business-page'>
-            <NavBar/>
-            <img/>
+        <>
+        <div className='header-top-individual-business'>
+        <div >
+            <NavLink to='/home'>
+            <img className='yelp-logo-new-review'src={whiteYelpLogo}/>
+            </NavLink>
+        </div>
+        <div className='nav-bar-right-buttons'>
+          <NavLink className='create-a-business-individual' to='/businesses/new' exact={true} activeClassName='active'>
+          <p className='create-a-business-individual' >Create a Business</p>
+        </NavLink>
+        <LogoutButton />
+      </div>
+        </div>
+            <div className='individual-business-page'>
             <div className='business-information'>
             {sessionUser.id === business?.ownerId ? (
-		    <div>
-		    <h1  className='business-title'>{business.title}</h1>
-		    <p className='business-description'>{business.description}</p>
-            <div className="business-address-full">
-		    <p className='business-address1'>{business?.address1}</p>
-			<p className='business-address2'>{business?.address2}</p>
-			<p className='business-city'>{business?.city}</p>
-			<p className='business-state'>{business?.state}</p>
-			<p className='business-zip'>{business?.zipCode}</p>
+		    <div className='business-information-inner-container'>
+            <img className='individual-business-image' src={business?.imageUrl}/>
+            <div className='business-details'>
+		        <h1  className='business-title'>{business.title}</h1>
+                <div className='editdelete-business-container'>
+		        <button className='editbusiness-btn' onClick={editUserBusiness}>
+			    Edit Business</button>
+		        <button className='deletebusiness-btn' onClick={handleBusinessDelete}>
+			    Delete Business
+		        </button>
+		        </div>
+                <div>
+                <div>
+                <p className='about-the-business'>About the Business:</p>
+		        <p className='business-description'>{business.description}</p>
+                </div>
+                <div className="business-address-full">
+                <p className='location'>Location:</p>
+		        <p className='business-address1'>{business?.address1}</p>
+			    <p className='business-address2'>{business?.address2}</p>
+			    <p className='business-city-state'>{business?.city}, {business?.state}</p>
+			    <p className='business-zip'>{business?.zipCode}</p>
+                </div>
+                </div>
             </div>
-		    <div className='editdelete-business-container'>
-		    <button className='editbusiness-btn' onClick={editUserBusiness}>
-			Edit Business</button>
-		    <button className='deletebusiness-btn' onClick={handleBusinessDelete}>
-			Delete Business
-		    </button>
-		    </div>
 		    </div>
 		) : (
 			<span>
+                <img className='individual-business-image' src={business?.imageUrl}/>
+                <div className='business-details'>
+
 				<h1 className='business-title'>{business?.title}</h1>
-				<p className='business-description'>{business?.description}</p>
-                <div className="business-address-full">
-				    <p className='business-address1'>{business?.address1}</p>
-				    <p className='business-address2'>{business?.address2}</p>
-				    <p className='business-city'>{business?.city}</p>
-				    <p className='business-state'>{business?.state}</p>
-				    <p className='business-zip'>{business?.zipCode}</p>
-                </div>
                 <div className='new-review-button'>
                 <button className='editbusiness-btn' onClick={sendNewReview}>
 			        Write Review</button>
                 </div>
+                <div>
+                <p className='about-the-business'>About the Business:</p>
+				<p className='business-description'>{business?.description}</p>
+                </div>
+                <div className="business-address-full">
+                    <p className='location'>Location:</p>
+				    <p className='business-address1'>{business?.address1}</p>
+				    <p className='business-address2'>{business?.address2}</p>
+				    <p className='business-city-state'>{business?.city}, {business?.state}</p>
+				    <p className='business-zip'>{business?.zipCode}</p>
+                </div>
+                </div>
+
 
 			</span>
 		)}
             <div className='business-reviews'>
+            <p className='review-text'> See What Others are Saying!</p>
             {businessReview && businessReview.map((review, idx) => {
                 return (
                     <div key={idx} className='review-container'>
@@ -151,5 +183,6 @@ export default function IndividualBusiness () {
 
             </div>
         </div>
+        </>
     )
 }

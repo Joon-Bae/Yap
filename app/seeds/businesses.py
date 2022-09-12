@@ -10,7 +10,7 @@ def seed_businesses():
         city="Yukon",
         state='Oklahoma',
         zip_code='73099',
-        image_url='https://siouxfalls.business/wp-content/uploads/2020/10/mr.-donuts-1024x934.jpg'
+        image_url='https://images.wallpaperscraft.com/image/single/donuts_sweets_pastries_132916_2560x1080.jpg'
     )
 
     business2 = Business(
@@ -21,7 +21,7 @@ def seed_businesses():
         city ='Tulsa',
         state ='Oklahoma',
         zip_code ='74102',
-        image_url='https://www.tmp-architecture.com/assets/novi-ecec_slider-1-786x525.jpg'
+        image_url='https://policyoptions.irpp.org/wp-content/uploads/sites/2/2021/07/Wordpress-How-to-grow-an-accessible-high-quality-equitable-child-care-system.jpg'
     )
 
 
