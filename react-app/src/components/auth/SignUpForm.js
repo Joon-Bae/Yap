@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -18,15 +18,36 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+
+  const validEmailRegex= /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
   const onSignUp = async (e) => {
     e.preventDefault();
+    const validationErrors = [];
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)
       }
+    } else {
+      if (!password || !repeatPassword) {
+        validationErrors.push('Please enter matching passwords')
+      } else {
+        validationErrors.push('Password and Confirm Password fields need to match')
+      }
+      setErrors(validationErrors)
     }
   };
+
+  const validationErrors=[];
+  useEffect(()=> {
+
+    if (email?.length > 0 && !email?.match(validEmailRegex)) {
+      validationErrors.push("Please enter a valid email.")
+    }
+    setErrors(validationErrors)
+  }, [email, password, repeatPassword])
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -56,7 +77,7 @@ const SignUpForm = () => {
       </NavLink>
     </div>
     <div className='signup-form-container-main'>
-   
+
     <form  className='signup-form' onSubmit={onSignUp}>
       {/* <div>
         {errors.map((error, ind) => (
@@ -80,7 +101,7 @@ const SignUpForm = () => {
         className='signup-input'
           type='text'
           name='username'
-          placeholder='User Name'
+          placeholder='User Name*'
           onChange={updateUsername}
           value={username}
         ></input>
@@ -90,7 +111,7 @@ const SignUpForm = () => {
         className='signup-input'
           type='text'
           name='email'
-          placeholder='Email'
+          placeholder='Email*'
           onChange={updateEmail}
           value={email}
         ></input>
@@ -101,7 +122,7 @@ const SignUpForm = () => {
         className='signup-input'
           type='password'
           name='password'
-          placeholder='Password'
+          placeholder='Password*'
           onChange={updatePassword}
           value={password}
         ></input>
@@ -111,13 +132,13 @@ const SignUpForm = () => {
         className='signup-input'
           type='password'
           name='repeat_password'
-          placeholder='Confirm Password'
+          placeholder='Confirm Password*'
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
         ></input>
       </div>
-      <button className='signup-button' type='submit'>Sign Up</button>
+      <button disabled={errors.length > 0 } className='signup-button' type='submit'>Sign Up</button>
       <div className='landing-project-repo'>
                 Check out the project repo here
                 <a target='_blank' href='https://github.com/Joon-Bae/Yap'>
