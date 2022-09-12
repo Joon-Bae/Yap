@@ -9,9 +9,9 @@ class Business(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    title = db.Column(db.String(100), nullable=False, unique=True)
+    title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text)
-    address1 = db.Column(db.String(100), nullable=False, unique=True)
+    address1 = db.Column(db.String(100), nullable=False)
     address2 = db.Column(db.String(50))
     city = db.Column(db.String(50), nullable=False)
     state = db.Column(db.String(13), nullable=False)
