@@ -3,12 +3,14 @@ import { useEffect, useState } from "react"
 import { NavLink, useHistory, useParams } from "react-router-dom"
 import { editReview } from "../../store/reviews.js";
 import whiteYelpLogo from '../../Images/yelp-logo-4.png'
+import { getAllBusinesses } from "../../store/businesses.js";
+import { getAllReviews } from "../../store/reviews.js";
 import './EditReviewForm.css'
 
 
 function EditReviewForm() {
     const dispatch = useDispatch();
-    const { id } = useParams();
+    const { id, businessId } = useParams();
     const userId = useSelector((state) => state.session.user.id)
     const individualReview = useSelector((state) => state.reviews.normalizedReviews[id])
     const business = useSelector((state) => state?.businesses?.normalizedBusinesses[individualReview?.businessId])
@@ -16,6 +18,7 @@ function EditReviewForm() {
     const [ review, setReview ] = useState('')
     const [ errors, setErrors ] = useState([])
     const history = useHistory();
+
 
     useEffect(() => {
         const validationErrors = [];
@@ -26,6 +29,11 @@ function EditReviewForm() {
 
     setErrors(validationErrors);
     }, [rating, review]);
+
+    if (business === undefined) {
+        history.push(`/businesses/${businessId}`)
+    }
+
 
     const handleSubmit = (e) => {
         e.preventDefault();

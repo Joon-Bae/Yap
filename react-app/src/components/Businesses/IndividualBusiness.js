@@ -42,7 +42,7 @@ export default function IndividualBusiness () {
     }
 
     const sendEditReview = (key) => {
-        history.push(`/reviews/${review[key].id}/edit`)
+        history.push(`/businesses/${business.id}/reviews/${review[key].id}/edit`)
     }
 
     const sendNewReview = () => {

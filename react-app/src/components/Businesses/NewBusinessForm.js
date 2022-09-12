@@ -33,6 +33,8 @@ function NewBusinessForm() {
     const [errors, setErrors] = useState([]);
     const history = useHistory();
 
+
+
     useEffect(() => {
         const validationErrors = [];
         if (!title.length) validationErrors.push("Title is required");
