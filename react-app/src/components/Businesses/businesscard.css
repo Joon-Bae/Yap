@@ -1,0 +1,55 @@
+.business-feed {
+display:flex;
+justify-content: center;
+}
+
+.businesses-list {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1224px;
+
+}
+
+.business-image {
+    width:200px;
+    height:199px;
+    border-radius: 4px;;
+}
+
+.business-card {
+    box-sizing: border-box;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    display: flex;
+    width:490px;
+    margin-right: 1.8rem;
+    margin-bottom: 1.8rem;
+    height: 200px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.business-title-link {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.businesses-title {
+    color: black;
+    font-weight: 700;
+    margin-left: .7rem;
+    margin-top: 2rem;
+}
+
+.businesses-title:hover {
+    text-decoration: underline;
+}
+
+.location-icon{
+    width:40px;
+    height:40px;
+}
+
+.business-city-state {
+    display:flex;
+    align-items: center;
+}

@@ -9,20 +9,33 @@ class Business(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    title = db.Column(db.String(100), nullable=False, unique=True)
+    title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text)
-    address = db.Column(db.String(255), nullable=False, unique=True)
+    address1 = db.Column(db.String(100), nullable=False)
+    address2 = db.Column(db.String(50))
+    city = db.Column(db.String(50), nullable=False)
+    state = db.Column(db.String(13), nullable=False)
+    zip_code = db.Column(db.String(5), nullable=False)
+    image_url = db.Column(db.String(255))
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, onupdate=func.now())
 
     # Relationships
     user = db.relationship('User', back_populates='businesses')  # Business can only belong to one user
+    business_reviews = db.relationship('Review', back_populates='business', cascade='all, delete') #  business can have many reviews
 
     def to_dict_with_user(self):
         return {
             'id': self.id,
-            'ownerId': self.owner_id,
+            'title':self.title,
             'description': self.description,
+            'address1':self.address1,
+            'address2':self.address2,
+            'city':self.city,
+            'state':self.state,
+            'zipCode': self.zip_code,
+            'imageUrl':self.image_url,
+            'ownerId': self.owner_id,
             'user': {
                 'username': User.query.get(self.owner_id).username
             },

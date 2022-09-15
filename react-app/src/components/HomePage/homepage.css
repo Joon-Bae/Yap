@@ -1,0 +1,34 @@
+.homepage-main {
+    display: column;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+
+.review-statement {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.landing-image-1 {
+    height:fit-content;
+    max-height: 600px;
+    width:100%;
+    object-fit: cover;
+}
+
+.landing-image-2 {
+    height:fit-content;
+    max-height: 600px;
+    width:100%;
+    object-fit: cover;
+}
+
+.landing-image-3 {
+    height:fit-content;
+    max-height: 600px;
+    width:100%;
+    object-fit: contain;
+}

@@ -1,0 +1,191 @@
+
+.login-button {
+    cursor: pointer;
+    width: 270px;
+    height: 37px;
+    padding: 5px 9px;
+    background-color: rgb(235, 15, 15);
+    color: white;
+    border: none;
+    margin-top: 1rem;
+}
+
+.login-button-demo {
+    cursor: pointer;
+    width: 270px;
+    height: 37px;
+    padding: 5px 9px;
+    background-color: rgb(235, 15, 15);
+    color: white;
+    border: none;
+    margin-top: 0.6rem;
+}
+
+.login-button:disabled {
+    opacity: .4;
+    cursor: default;
+}
+
+.login-input {
+    width: 260px;
+    height: 25px;
+    margin:4px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    outline: none;
+    background-color: white;
+    padding: 3px;
+}
+
+input:focus {
+    border-color: #aaa;
+}
+
+.login-form {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 260px;
+}
+
+.login-form-container-main {
+    height: 62vh;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    display:flex;
+    justify-content: center;
+    margin-top:6rem;
+}
+
+.login-title-container {
+    display: column;
+}
+
+.login-or {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 20px 20px;
+}
+
+.login-line {
+    width: 110px;
+    height: 1px;
+    /* border-bottom: 1px solid red; */
+    background-color: #dbdbdb;
+}
+
+.custom {
+    position: relative;
+    font-size: 14px;
+}
+
+
+.custom .placeholder {
+    /* font-family: ; */
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    bottom: 100px;
+    transform: translateY(-50%);
+    /* color: #aaa; */
+    transition:
+        top 0.3s ease,
+        font-size 0.3s ease,
+        color 0.3s ease;
+}
+
+.custom input:valid + .placeholder,
+.custom input:focus + .placeholder {
+    top: -7px;
+    font-size: 12px;
+}
+
+.login-form-header {
+    color: rgb(235, 15, 15);
+    font-size: 21px;
+    margin-left:3.5rem
+}
+
+.welcome-image {
+    margin-left:8rem;
+    width: 340px;
+    height:310px;
+}
+
+.link-to-signup {
+    font-size: 13.2px;
+    font-weight: bold;
+    margin-left:3.5rem;
+    margin-top:-0.7rem;
+}
+.signup-link {
+    font-size: 13.2px;
+    font-weight: bold;
+    margin-top:-1.5rem;
+    margin-left: 0.3rem;
+    color: #0095f6;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
+
+.app-description {
+    font-size: 11.4px;;
+    margin-top: -0.1rem;
+    margin-bottom: 1.2rem;
+}
+
+
+.header-top-login {
+    height: 68px;
+    background-color: rgb(235, 15, 15);
+    margin-top: -0.5rem;
+    width: 100%;
+}
+
+
+.yelp-text {
+    color:white;
+    font-weight: bolder;
+    font-size: 27px;
+}
+
+.yelp-logo {
+    height:45px;
+    margin-top:0.4rem;
+    width:100px;
+}
+
+.header-top-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.header-2{
+    display: flex;
+    align-items: center;
+}
+
+.landing-project-repo {
+    background-color: white;
+    font-size: 14px;
+    border: 1px solid #dbdbdb;
+    margin-top: 1.6rem;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    width: 234px;
+}
+
+.project-repo-image {
+    height:35px;
+    width:35px;
+    margin-left:1rem;
+}

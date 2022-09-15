@@ -1,0 +1,49 @@
+.home-logo {
+    height:70px;
+    width:70px;
+    margin-left: 2.5rem;
+}
+
+.nav-bar-container {
+    background-color: black;
+    opacity:0.7;
+    display: flex;
+    justify-content: space-between;
+    position:absolute;
+    width:100%
+}
+
+.nav-bar-right-buttons {
+    display: flex;
+}
+
+.create-a-business {
+    color: white;
+    font-weight: bold;
+    margin-right: 2.6rem;
+    margin-top: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.log-out-button {
+    margin-right: 2rem;
+    color:white;
+    width:100px;
+    height:40px;
+    border-radius: 4px;
+    margin-top: 0.8rem;
+    background-color: rgb(235, 15, 15);
+}
+
+.log-out-button:hover {
+    cursor: pointer;
+    background-color: rgb(244, 17, 17);
+}
+
+.business-information {
+    display: column;
+    justify-content: center;
+    align-items: center;
+}
