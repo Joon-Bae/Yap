@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-import yelpLogoNav1 from '../Images/yelp-logo-5.png'
+import yelpLogoNav1 from '../Images/yelp-black-logo.png'
 import './NavBar.css'
 
 
