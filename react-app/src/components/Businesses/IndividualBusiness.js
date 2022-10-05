@@ -23,7 +23,6 @@ export default function IndividualBusiness () {
     const reviews = useSelector((state) => Object.values(state.reviews.normalizedReviews))
     const review = useSelector((state) => state.reviews.normalizedReviews)
     const businessReview = reviews.filter(review  => +businessId === +review.businessId)
-    
 
     const colors = {
         'gold': "rgb(255, 201, 18)",
@@ -126,9 +125,8 @@ export default function IndividualBusiness () {
                 </div>
                 <div className="business-address-full">
                     <p className='location'>Location:</p>
-				    <p className='business-address1'>{business?.address1}</p>
-				    <p className='business-address2'>{business?.address2}</p>
-				    <p className='business-city-state'>{business?.city}, {business?.state}</p>
+				    <p className='business-address1'>{business?.address1}, {business?.address2}.</p>
+                    <p className='business-city-state'>{business?.city}, {business?.state}</p>
 				    <p className='business-zip'>{business?.zipCode}</p>
                 </div>
                 </div>
