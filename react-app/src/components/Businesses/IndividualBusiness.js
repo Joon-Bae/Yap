@@ -10,7 +10,6 @@ import editReview from '../../Images/edit-review.svg'
 import whiteYelpLogo from '../../Images/yelp-logo-4.png'
 import LogoutButton from '../auth/LogoutButton'
 
-import NavBar from "../NavBar"
 import { FaStar } from 'react-icons/fa'
 import './individualbusiness.css'
 
@@ -79,7 +78,7 @@ export default function IndividualBusiness () {
             <div className='business-information'>
             {sessionUser.id === business?.ownerId ? (
 		    <div className='business-information-inner-container'>
-            <img className='individual-business-image' onError={({ target }) => {
+            <img className='individual-business-image' alt='' onError={({ target }) => {
                         target.onError = null
                         target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvIKnUwCra_oSB-sJvyWgzYtnRnhagEg_byQ&usqp=CAU"
                   }}    src={business?.imageUrl}/>
@@ -108,7 +107,7 @@ export default function IndividualBusiness () {
 		    </div>
 		) : (
 			<span>
-                <img className='individual-business-image' onError={({ target }) => {
+                <img className='individual-business-image' alt='' onError={({ target }) => {
                         target.onError = null
                         target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvIKnUwCra_oSB-sJvyWgzYtnRnhagEg_byQ&usqp=CAU"
                   }}    src={business?.imageUrl}/>
@@ -164,10 +163,10 @@ export default function IndividualBusiness () {
                             <>
                             <div className='edit-delete-review-container'>
                                 <div className="delete-review-button">
-                                <img onClick={() =>handleReviewDelete(review.id)} className='delete-review-image' src={trashCan}/>
+                                <img onClick={() =>handleReviewDelete(review.id)} alt='' className='delete-review-image' src={trashCan}/>
                                 </div>
                                 <div className='edit-review-button'>
-                                <img onClick={() =>sendEditReview(review.id)} className='edit-review-image' src={editReview}/>
+                                <img onClick={() =>sendEditReview(review.id)} alt='' className='edit-review-image' src={editReview}/>
                                 </div>
                             </div>
                             </>
