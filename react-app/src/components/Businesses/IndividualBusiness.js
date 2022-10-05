@@ -23,7 +23,7 @@ export default function IndividualBusiness () {
     const reviews = useSelector((state) => Object.values(state.reviews.normalizedReviews))
     const review = useSelector((state) => state.reviews.normalizedReviews)
     const businessReview = reviews.filter(review  => +businessId === +review.businessId)
-    const userName = useSelector((state) => state?.businesses?.normalizedBusinesses[businessId]?.user?.username)
+    
 
     const colors = {
         'gold': "rgb(255, 201, 18)",
