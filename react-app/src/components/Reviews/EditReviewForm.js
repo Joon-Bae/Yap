@@ -75,7 +75,7 @@ function EditReviewForm() {
         <div className='header-top-new-review'>
         <div >
             <NavLink to='/home'>
-            <img className='yelp-logo-new-review'src={whiteYelpLogo}/>
+            <img className='yelp-logo-new-review' alt='' src={whiteYelpLogo}/>
             </NavLink>
         </div>
         <div>
