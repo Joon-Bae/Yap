@@ -11,7 +11,7 @@ const NavBar = () => {
       <div className='inner-nav-container'>
         <div className="nav-logo">
           <NavLink className='home-link' exact to='/home'>
-            <img className="home-logo" src={yelpLogoNav1} />
+            <img className="home-logo" alt='' src={yelpLogoNav1} />
           </NavLink>
         </div>
       </div>
