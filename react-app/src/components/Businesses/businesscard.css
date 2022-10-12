@@ -6,7 +6,7 @@ justify-content: center;
 .businesses-list {
     display:grid;
     grid-template-columns: 1fr 1fr;
-    max-width: 1224px;
+    max-width: 1225px;
 
 }
 

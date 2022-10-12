@@ -45,22 +45,6 @@ function NewReviewForm() {
     }, [rating, review]);
 
 
-    // useEffect(() => {
-    //    const response = fetch('/api/businesses/')
-    //    .then((response) => {
-    //     let data = response.json()
-    //    })
-    //    console.log(data)
-    // })
-    // const getBusiness = async () => {
-    //     console.log(businessId, "this is business Id front end")
-    //     const response = await fetch(`/api/businesses/${businessId}`)
-    //     const data = await response.json()
-    //     console.log(data, "************************* this is data")
-    //     setBusinesses(data)
-    // }
-    // console.log(businesses, "------------------------busineses")
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const formValues = {
