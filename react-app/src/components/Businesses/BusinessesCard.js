@@ -23,7 +23,7 @@ export default function BusinessesCard () {
                 return (
                     <div key={`${business.id}`} className='business-card'>
                         <div>
-                        <img className='business-image' onError={({ target }) => {
+                        <img className='business-image' alt='' onError={({ target }) => {
                         target.onError = null
                         target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvIKnUwCra_oSB-sJvyWgzYtnRnhagEg_byQ&usqp=CAU"
                   }}    src={business.imageUrl}/>
@@ -36,7 +36,7 @@ export default function BusinessesCard () {
                         </NavLink>
                         <div className='business-address'>
                             <div className='business-city-state'>
-                            <img className="location-icon" src={locationIcon}/>
+                            <img className="location-icon" alt='' src={locationIcon}/>
                             <p>{business.city}, {business.state}</p>
                             </div>
                         </div>

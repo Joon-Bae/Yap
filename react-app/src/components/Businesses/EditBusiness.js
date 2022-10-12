@@ -86,7 +86,7 @@ function EditBusinessForm() {
         <>
         <div className='header-top-login'>
         <div>
-        <img onClick={sendHome} className='yelp-logo' src={yelpLogo}/>
+        <img onClick={sendHome} alt='' className='yelp-logo' src={yelpLogo}/>
         </div>
         </div>
         <div className="edit-business-page">
@@ -206,7 +206,7 @@ function EditBusinessForm() {
             </button>
         </form>
         <div className='add-business-image-right'>
-            <img className='business-image1' src={businessImage}/>
+            <img className='business-image1' alt='' src={businessImage}/>
       </div>
         </div>
         </>
