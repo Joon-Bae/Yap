@@ -43,7 +43,7 @@ export default function Home({ businesses }) {
         <div>
         <NavBar />
             <div>
-            <img className='landing-image-1' src={image}/>
+            <img className='landing-image-1' alt='slideshow' src={image}/>
             </div>
         </div>
         <div className='homepage-main'>
