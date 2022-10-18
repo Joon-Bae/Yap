@@ -180,6 +180,8 @@ export default function IndividualBusiness () {
 
                         <p className='user-review'>{review.review}</p>
                         </div>
+                        <div className='reaction-buttons-container'>
+                        </div>
                     </div>
 
                 )
