@@ -181,6 +181,9 @@ export default function IndividualBusiness () {
                         <p className='user-review'>{review.review}</p>
                         </div>
                         <div className='reaction-buttons-container'>
+                            <button></button>
+                            <button></button>
+                            <button></button>
                         </div>
                     </div>
 
