@@ -64,7 +64,7 @@ export default function IndividualBusiness () {
         <div className='header-top-individual-business'>
         <div >
             <NavLink to='/home'>
-            <img className='yelp-logo-new-review'src={whiteYelpLogo}/>
+            <img className='yelp-logo-new-review' alt='yap-white-logo'src={whiteYelpLogo}/>
             </NavLink>
         </div>
         <div className='nav-bar-right-buttons'>
