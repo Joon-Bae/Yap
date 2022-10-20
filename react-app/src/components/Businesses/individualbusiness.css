@@ -170,11 +170,37 @@
 
 .user-review {
     margin-bottom: 4rem;
-    margin-top: 0.2rem;
+    margin-top: 1rem;
 }
 
 
 .reaction-buttons-container {
     margin-top: -2.8rem;
     margin-bottom: 2rem;
+}
+
+.reaction-1 {
+    background-color: white;
+    margin-right: 0.7rem;
+    height:31px;
+    width: 80px;
+    border: 1px solid lightgray;
+    cursor: pointer;
+}
+
+.reaction-2 {
+    background-color: white;
+    margin-right: 0.7rem;
+    height:31px;
+    width: 80px;
+    border: 1px solid lightgray;
+    cursor: pointer;
+}
+
+.reaction-3 {
+    background-color: white;
+    height:31px;
+    width: 71px;
+    border: 1px solid lightgray;
+    cursor: pointer;
 }
