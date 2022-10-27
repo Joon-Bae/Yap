@@ -170,4 +170,55 @@
 
 .user-review {
     margin-bottom: 4rem;
+    margin-top: 1rem;
+}
+
+
+.reaction-buttons-container {
+    margin-top: -2.8rem;
+    margin-bottom: 2rem;
+}
+
+.reaction-1 {
+    background-color: white;
+    margin-right: 0.7rem;
+    height:31px;
+    width: 80px;
+    color: rgb(115, 115, 115);
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.reaction-1:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+.reaction-2 {
+    background-color: white;
+    margin-right: 0.7rem;
+    height:31px;
+    width: 80px;
+    border-radius: 4px;
+    color: rgb(115, 115, 115);
+    border: 1px solid lightgray;
+    cursor: pointer;
+}
+
+.reaction-2:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+.reaction-3 {
+    background-color: white;
+    height:31px;
+    width: 71px;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    border-radius: 4px;
+    color: rgb(115, 115, 115);
+}
+
+.reaction-3:hover {
+    background-color: rgb(220, 220, 220);
 }

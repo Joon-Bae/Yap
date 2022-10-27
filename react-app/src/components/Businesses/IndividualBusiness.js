@@ -64,7 +64,7 @@ export default function IndividualBusiness () {
         <div className='header-top-individual-business'>
         <div >
             <NavLink to='/home'>
-            <img className='yelp-logo-new-review'src={whiteYelpLogo}/>
+            <img className='yelp-logo-new-review' alt='yap-white-logo'src={whiteYelpLogo}/>
             </NavLink>
         </div>
         <div className='nav-bar-right-buttons'>
@@ -179,6 +179,11 @@ export default function IndividualBusiness () {
                         <div>
 
                         <p className='user-review'>{review.review}</p>
+                        </div>
+                        <div className='reaction-buttons-container'>
+                            <button className='reaction-1'>Useful</button>
+                            <button className='reaction-2'>Funny</button>
+                            <button className='reaction-3'>Cool</button>
                         </div>
                     </div>
 
