@@ -11,7 +11,7 @@
 
 .edit-review-input {
     width:460px;
-    max-width:455px;
+    max-width:456px;
     font-family: 'Roboto', sans-serif;
     margin-left: 1rem;
     margin-top: 1.4rem;
@@ -57,4 +57,3 @@
     border: none;
     margin-top: 1rem;
 }
-
