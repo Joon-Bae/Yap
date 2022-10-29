@@ -9,7 +9,9 @@ import trashCan from '../../Images/trashcan.svg'
 import editReview from '../../Images/edit-review.svg'
 import whiteYelpLogo from '../../Images/yelp-logo-4.png'
 import LogoutButton from '../auth/LogoutButton'
-
+import usefulIcon from '../../Images/useful-icon.svg'
+import coolIcon from '../../Images/cool-icon.svg'
+import funnyIcon from '../../Images/funny-icon.svg'
 import { FaStar } from 'react-icons/fa'
 import './individualbusiness.css'
 
@@ -181,9 +183,18 @@ export default function IndividualBusiness () {
                         <p className='user-review'>{review.review}</p>
                         </div>
                         <div className='reaction-buttons-container'>
-                            <button className='reaction-1'>Useful</button>
-                            <button className='reaction-2'>Funny</button>
-                            <button className='reaction-3'>Cool</button>
+                            <button className='reaction-1'>
+                                <img className='useful-icon-img' alt='' src={usefulIcon}/>
+                                <p className='reaction-text'>Useful</p>
+                            </button>
+                            <button className='reaction-2'>
+                                <img className='funny-icon-img' alt='' src={funnyIcon}/>
+                                <p className='reaction-text'>Funny</p>
+                            </button>
+                            <button className='reaction-3'>
+                                <img className='cool-icon-img' alt='' src={coolIcon}/>
+                                <p className='reaction-text'>Cool</p>
+                            </button>
                         </div>
                     </div>
 
