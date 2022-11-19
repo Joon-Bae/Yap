@@ -81,10 +81,23 @@ def delete_review(id):
 @login_required
 def post_remove_useful_reaction(review_id):
     review = Review.query.get(review_id)
-    if current_user not in review.review_useful_reaction:
+    if current_user not in review.useful_reaction:
         review.useful_reaction.append(current_user)
         db.session.commit()
     else:
         review.useful_reaction.append(current_user)
         db.session.commit()
     return { 'users_useful': [user.to_dict() for user in review.useful_reaction] }
+
+# POST AND REMOVE FUNNY REACTION
+@review_routes.route('/<int:review_id>/funny')
+@login_required
+def post_remove_funny_reaction(review_id):
+    review = Review.query.get(review_id)
+    if current_user not in review.funny_reaction:
+        review.funny_reaction.append(current_user)
+        db.session.commit()
+    else:
+        review.funny_reaction.append(current_user)
+        db.session.commit()
+    return { 'users_funny': [user.to_dict() for user in review.funny_reaction] }
