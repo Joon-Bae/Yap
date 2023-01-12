@@ -184,7 +184,7 @@
     background-color: white;
     margin-right: 0.7rem;
     height:31px;
-    width: 82px;
+    width: 81px;
     color: rgb(115, 115, 115);
     border: 1px solid lightgray;
     border-radius: 4px;
@@ -231,7 +231,7 @@
 .reaction-3 {
     background-color: white;
     height:31px;
-    width: 73px;
+    width: 71.2px;
     border: 1px solid lightgray;
     cursor: pointer;
     border-radius: 4px;
@@ -252,5 +252,5 @@
 }
 
 .reaction-text{
-    font-size: 11.2px;
+    font-size: 11px;
 }
