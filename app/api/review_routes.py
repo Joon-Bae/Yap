@@ -103,14 +103,14 @@ def post_remove_useful_reaction(review_id):
 #     return { 'users_funny': [user.to_dict() for user in review.funny_reaction] }
 
 # POST AND REMOVE COOL REACTION
-@review_routes.route('/<int:review_id>/cool')
-@login_required
-def post_remove_cool_reaction(review_id):
-    review = Review.query.get(review_id)
-    if current_user not in review.cool_reaction:
-        review.cool_reaction.append(current_user)
-        db.session.commit()
-    else:
-        review.cool_reaction.append(current_user)
-        db.session.commit()
-    return { 'users_cool': [user.to_dict() for user in review.cool_reaction] }
+# @review_routes.route('/<int:review_id>/cool')
+# @login_required
+# def post_remove_cool_reaction(review_id):
+#     review = Review.query.get(review_id)
+#     if current_user not in review.cool_reaction:
+#         review.cool_reaction.append(current_user)
+#         db.session.commit()
+#     else:
+#         review.cool_reaction.append(current_user)
+#         db.session.commit()
+#     return { 'users_cool': [user.to_dict() for user in review.cool_reaction] }
