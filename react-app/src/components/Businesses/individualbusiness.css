@@ -186,12 +186,13 @@
     height:31px;
     width: 81px;
     color: rgb(115, 115, 115);
-    border: 1px solid lightgray;
+    /* border: 1px solid lightgray; */
     border-radius: 4px;
     cursor: pointer;
     display: flex;
     align-items: center;
 }
+
 
 .useful-icon-img {
     margin-left: 0.3rem;

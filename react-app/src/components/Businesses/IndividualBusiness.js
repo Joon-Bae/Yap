@@ -64,6 +64,18 @@ export default function IndividualBusiness () {
         history.push(`/businesses/${business.id}/reviews/new`)
     }
 
+    const handleUseful = () => {
+        setUseful(!useful)
+    }
+
+    const handleFunny = () => {
+        setFunny(!funny)
+    }
+
+    const handleCool = () => {
+        setCool(!cool)
+    }
+
     return (
         <>
         <div className='header-top-individual-business'>
@@ -186,15 +198,24 @@ export default function IndividualBusiness () {
                         <p className='user-review'>{review.review}</p>
                         </div>
                         <div className='reaction-buttons-container'>
-                            <button className='reaction-1'>
+                            <button 
+                            style={{ border: useful ? '2px solid lightgreen' : '1px solid lightgray',
+                            color: useful ? '1px solid lightgreen' : '1px solid lightgray'}}
+                            onClick={handleUseful} className='reaction-1'>
+                                
                                 <img className='useful-icon-img' alt='' src={usefulIcon}/>
                                 <p className='reaction-text'>Useful</p>
+                                    
                             </button>
-                            <button className='reaction-2'>
+                            <button style={{ border: funny ? '2px solid lightgreen' : '1px solid lightgray',
+                            color: funny ? '1px solid lightgreen' : '1px solid lightgray'}}
+                            onClick={handleFunny} className='reaction-2'>
                                 <img className='funny-icon-img' alt='' src={funnyIcon}/>
                                 <p className='reaction-text'>Funny</p>
                             </button>
-                            <button className='reaction-3'>
+                            <button style={{ border: cool ? '2px solid lightgreen' : '1px solid lightgray',
+                            color: cool ? '1px solid lightgreen' : '1px solid lightgray'}}
+                            onClick={handleCool} className='reaction-3'>
                                 <img className='cool-icon-img' alt='' src={coolIcon}/>
                                 <p className='reaction-text'>Cool</p>
                             </button>
