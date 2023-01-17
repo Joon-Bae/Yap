@@ -25,6 +25,8 @@ export default function IndividualBusiness () {
     const review = useSelector((state) => state.reviews.normalizedReviews)
     const businessReview = reviews.filter(review  => +businessId === +review.businessId)
     const [ useful, setUseful] = useState(false)
+    const [ funny, setFunny ] = useState(false)
+    const [ cool, setCool ] = useState(false)
 
     const colors = {
         'gold': "rgb(255, 201, 18)",
