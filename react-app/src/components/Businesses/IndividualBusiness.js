@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useHistory, useParams } from "react-router-dom"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { getAllBusinesses } from "../../store/businesses"
 import { removeBusiness } from "../../store/businesses"
 import { getAllReviews } from "../../store/reviews"
@@ -24,6 +24,9 @@ export default function IndividualBusiness () {
     const reviews = useSelector((state) => Object.values(state.reviews.normalizedReviews))
     const review = useSelector((state) => state.reviews.normalizedReviews)
     const businessReview = reviews.filter(review  => +businessId === +review.businessId)
+    const [ useful, setUseful] = useState(false)
+    const [ funny, setFunny ] = useState(false)
+    const [ cool, setCool ] = useState(false)
 
     const colors = {
         'gold': "rgb(255, 201, 18)",
